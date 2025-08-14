@@ -30,7 +30,7 @@ Projenizin ana CSS dosyasına veya `app.html` dosyasına TailwindCSS'i dahil edi
 
 ```svelte
 <script>
-	import { Button } from '@kubilaysabah/svelte-ui';
+ import { Button } from '@kubilaysabah/svelte-ui';
 </script>
 
 <Button>Varsayılan Button</Button>
@@ -44,7 +44,7 @@ Projenizin ana CSS dosyasına veya `app.html` dosyasına TailwindCSS'i dahil edi
 
 ```svelte
 <script>
-	import { Button } from '@kubilaysabah/svelte-ui';
+ import { Button } from '@kubilaysabah/svelte-ui';
 </script>
 
 <!-- Tüm variant'lar -->
@@ -81,11 +81,11 @@ Projenizin ana CSS dosyasına veya `app.html` dosyasına TailwindCSS'i dahil edi
 
 ```svelte
 <script>
-	import { Button } from '@kubilaysabah/svelte-ui';
+ import { Button } from '@kubilaysabah/svelte-ui';
 
-	function handleClick(event) {
-		console.log('Button clicked!', event);
-	}
+ function handleClick(event) {
+  console.log('Button clicked!', event);
+ }
 </script>
 
 <Button onclick={handleClick}>Click Me</Button>
@@ -98,28 +98,28 @@ Eğer kendi TailwindCSS konfigürasyonunuz varsa, bu renkleri ekleyin:
 ```js
 // tailwind.config.js
 export default {
-	content: [
-		'./src/**/*.{html,js,svelte,ts}',
-		'./node_modules/@kubilaysabah/svelte-ui/dist/**/*.{js,svelte}'
-	],
-	theme: {
-		extend: {
-			colors: {
-				primary: {
-					50: '#eff6ff',
-					100: '#dbeafe',
-					200: '#bfdbfe',
-					300: '#93c5fd',
-					400: '#60a5fa',
-					500: '#3b82f6',
-					600: '#2563eb',
-					700: '#1d4ed8',
-					800: '#1e40af',
-					900: '#1e3a8a'
-				}
-			}
-		}
-	}
+ content: [
+  './src/**/*.{html,js,svelte,ts}',
+  './node_modules/@kubilaysabah/svelte-ui/dist/**/*.{js,svelte}'
+ ],
+ theme: {
+  extend: {
+   colors: {
+    primary: {
+     50: '#eff6ff',
+     100: '#dbeafe',
+     200: '#bfdbfe',
+     300: '#93c5fd',
+     400: '#60a5fa',
+     500: '#3b82f6',
+     600: '#2563eb',
+     700: '#1d4ed8',
+     800: '#1e40af',
+     900: '#1e3a8a'
+    }
+   }
+  }
+ }
 };
 ```
 
@@ -128,12 +128,12 @@ export default {
 ```svelte
 <!-- src/routes/+page.svelte -->
 <script>
-	import { Button } from '@kubilaysabah/svelte-ui';
+ import { Button } from '@kubilaysabah/svelte-ui';
 </script>
 
 <main>
-	<h1>Merhaba SvelteKit!</h1>
-	<Button variant="outline" onclick={() => alert('Merhaba!')}>Tıkla</Button>
+ <h1>Merhaba SvelteKit!</h1>
+ <Button variant="outline" onclick={() => alert('Merhaba!')}>Tıkla</Button>
 </main>
 ```
 
@@ -154,7 +154,7 @@ const size: ButtonSize = 'lg';
 
 ```svelte
 <script>
-	import { Button } from '@kubilaysabah/svelte-ui';
+ import { Button } from '@kubilaysabah/svelte-ui';
 </script>
 
 <!-- Ek CSS sınıfları eklemek -->
@@ -165,18 +165,18 @@ const size: ButtonSize = 'lg';
 
 ```svelte
 <script>
-	import { Button } from '@kubilaysabah/svelte-ui';
+ import { Button } from '@kubilaysabah/svelte-ui';
 
-	let formData = { name: '' };
+ let formData = { name: '' };
 
-	function handleSubmit() {
-		console.log('Form submitted:', formData);
-	}
+ function handleSubmit() {
+  console.log('Form submitted:', formData);
+ }
 </script>
 
 <form on:submit|preventDefault={handleSubmit}>
-	<input bind:value={formData.name} placeholder="İsminiz" />
-	<Button type="submit">Gönder</Button>
+ <input bind:value={formData.name} placeholder="İsminiz" />
+ <Button type="submit">Gönder</Button>
 </form>
 ```
 

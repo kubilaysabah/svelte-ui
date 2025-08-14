@@ -64,11 +64,11 @@ svelte-ui/
 
 ```svelte
 <script lang="ts">
-	// Props için $props() kullan
-	let { variant = 'default', size = 'default', ...props }: Props = $props();
+ // Props için $props() kullan
+ let { variant = 'default', size = 'default', ...props }: Props = $props();
 
-	// Reactive values için $derived() kullan
-	let className = $derived(cn(buttonVariants({ variant, size }), props.class));
+ // Reactive values için $derived() kullan
+ let className = $derived(cn(buttonVariants({ variant, size }), props.class));
 </script>
 ```
 
@@ -77,11 +77,11 @@ svelte-ui/
 ```typescript
 // Her component için interface tanımla
 interface Props {
-	variant?: ButtonVariant;
-	size?: ButtonSize;
-	disabled?: boolean;
-	class?: string;
-	children?: any;
+ variant?: ButtonVariant;
+ size?: ButtonSize;
+ disabled?: boolean;
+ class?: string;
+ children?: any;
 }
 
 // Union types kullan
@@ -93,26 +93,26 @@ export type ButtonVariant = 'default' | 'destructive' | 'outline' | 'secondary' 
 ```typescript
 // class-variance-authority ile variant yönetimi
 export const buttonVariants = cva(
-	// Base styles
-	'inline-flex items-center justify-center...',
-	{
-		variants: {
-			variant: {
-				default: 'bg-primary-500 text-white hover:bg-primary-600',
-				destructive: 'bg-red-500 text-white hover:bg-red-600'
-				// ...
-			},
-			size: {
-				default: 'h-10 px-4 py-2',
-				sm: 'h-9 rounded-md px-3'
-				// ...
-			}
-		},
-		defaultVariants: {
-			variant: 'default',
-			size: 'default'
-		}
-	}
+ // Base styles
+ 'inline-flex items-center justify-center...',
+ {
+  variants: {
+   variant: {
+    default: 'bg-primary-500 text-white hover:bg-primary-600',
+    destructive: 'bg-red-500 text-white hover:bg-red-600'
+    // ...
+   },
+   size: {
+    default: 'h-10 px-4 py-2',
+    sm: 'h-9 rounded-md px-3'
+    // ...
+   }
+  },
+  defaultVariants: {
+   variant: 'default',
+   size: 'default'
+  }
+ }
 );
 ```
 
@@ -148,9 +148,9 @@ import { describe, it, expect } from 'vitest';
 import { cn } from './cn';
 
 describe('cn utility', () => {
-	it('should merge classes correctly', () => {
-		expect(cn('px-2 py-1', 'px-3')).toBe('py-1 px-3');
-	});
+ it('should merge classes correctly', () => {
+  expect(cn('px-2 py-1', 'px-3')).toBe('py-1 px-3');
+ });
 });
 ```
 
@@ -163,10 +163,10 @@ describe('cn utility', () => {
 ```typescript
 // E2E test örneği
 test('button is accessible', async ({ page }) => {
-	await page.goto('/');
-	const button = page.locator('button').first();
-	await expect(button).toHaveAttribute('role', 'button');
-	await expect(button).toBeFocused();
+ await page.goto('/');
+ const button = page.locator('button').first();
+ await expect(button).toHaveAttribute('role', 'button');
+ await expect(button).toBeFocused();
 });
 ```
 
@@ -176,20 +176,20 @@ test('button is accessible', async ({ page }) => {
 
 ```json
 {
-	"name": "@kubilaysabah/svelte-ui",
-	"type": "module",
-	"svelte": "./dist/index.js",
-	"types": "./dist/index.d.ts",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js"
-		}
-	},
-	"files": ["dist"],
-	"peerDependencies": {
-		"svelte": "^5.0.0"
-	}
+ "name": "@kubilaysabah/svelte-ui",
+ "type": "module",
+ "svelte": "./dist/index.js",
+ "types": "./dist/index.d.ts",
+ "exports": {
+  ".": {
+   "types": "./dist/index.d.ts",
+   "svelte": "./dist/index.js"
+  }
+ },
+ "files": ["dist"],
+ "peerDependencies": {
+  "svelte": "^5.0.0"
+ }
 }
 ```
 
@@ -225,22 +225,22 @@ npm publish --access public
 ```js
 // tailwind.config.js
 export default {
-	content: [
-		'./src/**/*.{html,js,svelte,ts}',
-		'./node_modules/@kubilaysabah/svelte-ui/dist/**/*.{js,svelte}'
-	],
-	theme: {
-		extend: {
-			colors: {
-				primary: {
-					50: '#eff6ff',
-					500: '#3b82f6',
-					600: '#2563eb',
-					700: '#1d4ed8'
-				}
-			}
-		}
-	}
+ content: [
+  './src/**/*.{html,js,svelte,ts}',
+  './node_modules/@kubilaysabah/svelte-ui/dist/**/*.{js,svelte}'
+ ],
+ theme: {
+  extend: {
+   colors: {
+    primary: {
+     50: '#eff6ff',
+     500: '#3b82f6',
+     600: '#2563eb',
+     700: '#1d4ed8'
+    }
+   }
+  }
+ }
 };
 ```
 
@@ -265,10 +265,10 @@ export default {
 ```typescript
 // Her component için story
 export default {
-	title: 'UI/Button',
-	component: ButtonStory,
-	parameters: { layout: 'centered' },
-	tags: ['autodocs']
+ title: 'UI/Button',
+ component: ButtonStory,
+ parameters: { layout: 'centered' },
+ tags: ['autodocs']
 } satisfies Meta<typeof ButtonStory>;
 ```
 

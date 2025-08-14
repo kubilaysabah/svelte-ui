@@ -6,21 +6,24 @@ describe('Button Variants', () => {
 		const classes = buttonVariants();
 
 		expect(classes).toContain('inline-flex');
-		expect(classes).toContain('bg-primary-500');
+		expect(classes).toContain('bg-primary');
+		expect(classes).toContain('text-primary-foreground');
 		expect(classes).toContain('h-10');
 	});
 
 	it('generates correct destructive variant', () => {
 		const classes = buttonVariants({ variant: 'destructive' });
 
-		expect(classes).toContain('bg-destructive-500');
+		expect(classes).toContain('bg-destructive');
+		expect(classes).toContain('text-destructive-foreground');
 	});
 
 	it('generates correct outline variant', () => {
 		const classes = buttonVariants({ variant: 'outline' });
 
 		expect(classes).toContain('border');
-		expect(classes).toContain('border-muted-300');
+		expect(classes).toContain('border-input');
+		expect(classes).toContain('bg-background');
 	});
 
 	it('generates correct sizes', () => {

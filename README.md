@@ -30,7 +30,7 @@ yarn add @kubilaysabah/svelte-ui
 
 ```svelte
 <script>
-	import { Button } from '@kubilaysabah/svelte-ui';
+ import { Button } from '@kubilaysabah/svelte-ui';
 </script>
 
 <Button variant="default">Click me</Button>
@@ -44,7 +44,7 @@ yarn add @kubilaysabah/svelte-ui
 
 ```svelte
 <script>
-	import { Button } from '@kubilaysabah/svelte-ui';
+ import { Button } from '@kubilaysabah/svelte-ui';
 </script>
 
 <!-- Variants -->
@@ -149,9 +149,122 @@ npm run dev
 npm run dev -- --open
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+## 🎨 Theme System
 
-## Building
+This library includes a comprehensive theme system inspired by shadcn/ui with support for light and dark modes.
+
+### Theme Setup
+
+Add the theme configuration to your `app.css`:
+
+```css
+@import 'tailwindcss';
+
+@theme {
+  /* Light mode colors */
+  --color-background: 0 0% 100%;
+  --color-foreground: 222.2 84% 4.9%;
+  --color-primary: 221.2 83.2% 53.3%;
+  --color-primary-foreground: 210 40% 98%;
+  --color-secondary: 210 40% 96%;
+  --color-secondary-foreground: 222.2 84% 4.9%;
+  /* ... other colors */
+}
+
+@media (prefers-color-scheme: dark) {
+  @theme {
+    /* Dark mode colors */
+    --color-background: 222.2 84% 4.9%;
+    --color-foreground: 210 40% 98%;
+    /* ... other colors */
+  }
+}
+
+.dark {
+  /* Dark mode override classes */
+  --color-background: 222.2 84% 4.9%;
+  --color-foreground: 210 40% 98%;
+  /* ... other colors */
+}
+
+body {
+  background-color: hsl(var(--color-background));
+  color: hsl(var(--color-foreground));
+}
+```
+
+### TailwindCSS Configuration
+
+Update your `tailwind.config.js`:
+
+```js
+export default {
+  content: ['./src/**/*.{html,js,svelte,ts}'],
+  theme: {
+    extend: {
+      colors: {
+        border: 'hsl(var(--color-border))',
+        input: 'hsl(var(--color-input))',
+        ring: 'hsl(var(--color-ring))',
+        background: 'hsl(var(--color-background))',
+        foreground: 'hsl(var(--color-foreground))',
+        primary: {
+          DEFAULT: 'hsl(var(--color-primary))',
+          foreground: 'hsl(var(--color-primary-foreground))'
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--color-secondary))',
+          foreground: 'hsl(var(--color-secondary-foreground))'
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--color-destructive))',
+          foreground: 'hsl(var(--color-destructive-foreground))'
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--color-muted))',
+          foreground: 'hsl(var(--color-muted-foreground))'
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--color-accent))',
+          foreground: 'hsl(var(--color-accent-foreground))'
+        }
+      }
+    }
+  },
+  darkMode: ['class']
+};
+```
+
+### Theme Utilities
+
+The library provides utility functions for theme management:
+
+```svelte
+<script>
+  import { toggleTheme, isDarkMode, setTheme } from '@kubilaysabah/svelte-ui';
+  
+  let isDark = isDarkMode();
+  
+  function handleToggle() {
+    toggleTheme();
+    isDark = isDarkMode();
+  }
+</script>
+
+<button onclick={handleToggle}>
+  {isDark ? '☀️' : '🌙'} Toggle Theme
+</button>
+```
+
+### Available Theme Functions
+
+- `getTheme()` - Get current theme setting ('light' | 'dark' | 'system')
+- `setTheme(theme)` - Set theme explicitly
+- `isDarkMode()` - Check if current effective theme is dark
+- `toggleTheme()` - Toggle between light and dark
+- `initTheme()` - Initialize theme system (call once on app startup)
+
+## 📚 Building
 
 To build your library:
 
