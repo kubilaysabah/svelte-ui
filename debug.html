@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Debug</title>
+    <style>
+        :root {
+            --color-primary: 221.2 83.2% 53.3%;
+            --color-background: 0 0% 100%;
+        }
+        
+        .dark {
+            --color-primary: 217.2 91.2% 59.8%;
+            --color-background: 222.2 84% 4.9%;
+        }
+        
+        body {
+            background-color: hsl(var(--color-background));
+            margin: 0;
+            font-family: system-ui;
+            transition: all 0.3s ease;
+        }
+        
+        .box {
+            background-color: hsl(var(--color-primary));
+            color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            margin: 20px;
+            background: hsl(var(--color-primary));
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="margin: 20px;">Theme Debug Test</h1>
+    <button onclick="toggleTheme()">Toggle Theme</button>
+    
+    <div class="box">
+        Primary Color Box - should change when toggled
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            console.log('Theme toggled. Classes:', document.documentElement.classList.toString());
+            
+            const style = getComputedStyle(document.documentElement);
+            console.log('--color-primary:', style.getPropertyValue('--color-primary'));
+            console.log('--color-background:', style.getPropertyValue('--color-background'));
+        }
+    </script>
+</body>
+</html>

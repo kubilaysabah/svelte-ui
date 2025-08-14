@@ -32,10 +32,14 @@ export function setTheme(theme: Theme) {
 		localStorage.removeItem('theme');
 		const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 		html.classList.add(systemTheme);
+		console.log('Applied system theme:', systemTheme);
 	} else {
 		localStorage.setItem('theme', theme);
 		html.classList.add(theme);
+		console.log('Applied explicit theme:', theme);
 	}
+	
+	console.log('Current classes:', html.classList.toString());
 }
 
 /**
