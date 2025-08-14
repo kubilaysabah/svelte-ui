@@ -35,13 +35,6 @@ Supports all native button attributes and events
 	let computedClass = $derived(cn(buttonVariants({ variant, size }), className));
 </script>
 
-<button
-	{type}
-	{disabled}
-	{role}
-	class={computedClass}
-	{onclick}
-	{...restProps}
->
+<button {type} {disabled} {role} class={computedClass} {onclick} {...restProps}>
 	{@render children?.()}
 </button>

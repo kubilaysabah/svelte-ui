@@ -6,8 +6,10 @@ export const buttonVariants = cva(
 		variants: {
 			variant: {
 				default: 'bg-primary-500 text-white hover:bg-primary-600 active:bg-primary-700',
-				destructive: 'bg-destructive-500 text-white hover:bg-destructive-600 active:bg-destructive-700',
-				outline: 'border border-muted-300 bg-white text-muted-900 hover:bg-muted-50 hover:text-muted-950',
+				destructive:
+					'bg-destructive-500 text-white hover:bg-destructive-600 active:bg-destructive-700',
+				outline:
+					'border border-muted-300 bg-white text-muted-900 hover:bg-muted-50 hover:text-muted-950',
 				secondary: 'bg-secondary-100 text-secondary-900 hover:bg-secondary-200',
 				ghost: 'text-muted-700 hover:bg-muted-100 hover:text-muted-900',
 				link: 'text-primary-600 underline-offset-4 hover:underline'

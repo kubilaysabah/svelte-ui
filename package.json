@@ -7,7 +7,7 @@
 	"homepage": "https://github.com/kubilaysabah/svelte-ui#readme",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/kubilaysabah/svelte-ui.git"
+		"url": "git+https://github.com/kubilaysabah/svelte-ui.git"
 	},
 	"bugs": {
 		"url": "https://github.com/kubilaysabah/svelte-ui/issues"
@@ -58,6 +58,9 @@
 	},
 	"peerDependencies": {
 		"svelte": "^5.0.0"
+	},
+	"publishConfig": {
+		"access": "public"
 	},
 	"devDependencies": {
 		"@chromatic-com/storybook": "^4.1.0",

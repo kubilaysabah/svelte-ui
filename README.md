@@ -30,7 +30,7 @@ yarn add @kubilaysabah/svelte-ui
 
 ```svelte
 <script>
-  import { Button } from '@kubilaysabah/svelte-ui';
+	import { Button } from '@kubilaysabah/svelte-ui';
 </script>
 
 <Button variant="default">Click me</Button>
@@ -44,7 +44,7 @@ yarn add @kubilaysabah/svelte-ui
 
 ```svelte
 <script>
-  import { Button } from '@kubilaysabah/svelte-ui';
+	import { Button } from '@kubilaysabah/svelte-ui';
 </script>
 
 <!-- Variants -->
@@ -69,13 +69,13 @@ yarn add @kubilaysabah/svelte-ui
 
 ### Button Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `'default' \| 'destructive' \| 'outline' \| 'secondary' \| 'ghost' \| 'link'` | `'default'` | Visual variant of the button |
-| `size` | `'default' \| 'sm' \| 'lg' \| 'icon'` | `'default'` | Size of the button |
-| `disabled` | `boolean` | `false` | Whether the button is disabled |
-| `type` | `'button' \| 'submit' \| 'reset'` | `'button'` | Button type attribute |
-| `class` | `string` | `undefined` | Additional CSS classes |
+| Prop       | Type                                                                          | Default     | Description                    |
+| ---------- | ----------------------------------------------------------------------------- | ----------- | ------------------------------ |
+| `variant`  | `'default' \| 'destructive' \| 'outline' \| 'secondary' \| 'ghost' \| 'link'` | `'default'` | Visual variant of the button   |
+| `size`     | `'default' \| 'sm' \| 'lg' \| 'icon'`                                         | `'default'` | Size of the button             |
+| `disabled` | `boolean`                                                                     | `false`     | Whether the button is disabled |
+| `type`     | `'button' \| 'submit' \| 'reset'`                                             | `'button'`  | Button type attribute          |
+| `class`    | `string`                                                                      | `undefined` | Additional CSS classes         |
 
 ## 🛠️ Development
 
