@@ -51,7 +51,8 @@
 	--shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
 }
 
-/* Dark mode class override */
+/* Dark mode class override - Higher specificity */
+:root.dark,
 .dark {
 	--color-background: 222.2 84% 4.9%;
 	--color-foreground: 210 40% 98%;
@@ -87,46 +88,21 @@
 	--color-chart-5: 340 75% 55%;
 }
 
-@theme inline {
-	--color-background: var(--color-background);
-	--color-foreground: var(--color-foreground);
-	--color-card: var(--color-card);
-	--color-card-foreground: var(--color-card-foreground);
-	--color-popover: var(--color-popover);
-	--color-popover-foreground: var(--color-popover-foreground);
+/* Base styles */
+* {
+	border-color: hsl(var(--color-border));
+}
 
-	--color-primary: var(--color-primary);
-	--color-primary-foreground: var(--color-primary-foreground);
-
-	--color-secondary: var(--color-secondary);
-	--color-secondary-foreground: var(--color-secondary-foreground);
-
-	--color-muted: var(--color-muted);
-	--color-muted-foreground: var(--color-muted-foreground);
-
-	--color-accent: var(--color-accent);
-	--color-accent-foreground: var(--color-accent-foreground);
-
-	--color-destructive: var(--color-destructive);
-	--color-destructive-foreground: var(--color-destructive-foreground);
-
-	--color-border: var(--color-border);
-	--color-input: var(--color-input);
-	--color-ring: var(--color-ring);
-
-	/* Chart colors */
-	--color-chart-1: var(--color-chart-1);
-	--color-chart-2: var(--color-chart-2);
-	--color-chart-3: var(--color-chart-3);
-	--color-chart-4: var(--color-chart-4);
-	--color-chart-5: var(--color-chart-5);
+body {
+	background-color: hsl(var(--color-background));
+	color: hsl(var(--color-foreground));
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+	* {
+		@apply outline-ring/50;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
 }
