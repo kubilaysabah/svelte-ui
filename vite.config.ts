@@ -5,8 +5,12 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()],
 	test: {
-		environment: 'node',
+		environment: 'jsdom',
 		include: ['src/**/*.{test,spec}.{js,ts}'],
-		exclude: ['src/**/*.svelte.{test,spec}.{js,ts}']
+		setupFiles: ['./vitest-setup-client.ts'],
+		globals: true
+	},
+	ssr: {
+		noExternal: ['@testing-library/svelte']
 	}
 });

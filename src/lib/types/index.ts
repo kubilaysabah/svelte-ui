@@ -1,1 +1,4 @@
-export * from './components.js';
+export * from './input.js';
+export * from './checkbox.js';
+export * from './select.js';
+export * from './textarea.js';

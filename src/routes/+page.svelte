@@ -1,8 +1,22 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
+	import Input from '$lib/components/ui/input.svelte';
+	import Checkbox from '$lib/components/ui/checkbox.svelte';
+	import Select from '$lib/components/ui/select.svelte';
+	import Textarea from '$lib/components/ui/textarea.svelte';
 	import { initTheme, toggleTheme, isDarkMode } from '$lib/utils/theme.js';
 
 	let isDark = $state(false);
+	let inputValue = $state('');
+	let checkboxChecked = $state(false);
+	let selectValue = $state('');
+	let textareaValue = $state('');
+	
+	const selectOptions = [
+		{ value: 'option1', label: 'Option 1' },
+		{ value: 'option2', label: 'Option 2' },
+		{ value: 'option3', label: 'Option 3' }
+	];
 
 	// Initialize theme system
 	$effect(() => {
@@ -199,7 +213,156 @@
 
 		<!-- Interactive Examples -->
 		<section class="mb-16">
-			<h3 class="text-3xl font-bold mb-8 text-center">Interactive Examples</h3>
+			<h3 class="text-3xl font-bold mb-8 text-center">Form Components Demo</h3>
+			
+			<!-- Input Component -->
+			<div class="rounded-xl border bg-card/50 p-8 mb-8">
+				<h4 class="text-xl font-semibold mb-6">Input Component</h4>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+					<Input 
+						bind:value={inputValue}
+						placeholder="Default input"
+						label="Default Input"
+					/>
+					<Input 
+						variant="filled"
+						placeholder="Filled input"
+						label="Filled Input"
+					/>
+					<Input 
+						variant="outline"
+						placeholder="Outline input"
+						label="Outline Input"
+					/>
+					<Input 
+						type="email"
+						placeholder="Email input"
+						label="Email Input"
+						helperText="Enter your email address"
+					/>
+					<Input 
+						placeholder="Error input"
+						label="Error Input"
+						errorText="This field is required"
+					/>
+					<Input 
+						placeholder="Disabled input"
+						label="Disabled Input"
+						disabled
+					/>
+				</div>
+			</div>
+
+			<!-- Checkbox Component -->
+			<div class="rounded-xl border bg-card/50 p-8 mb-8">
+				<h4 class="text-xl font-semibold mb-6">Checkbox Component</h4>
+				<div class="space-y-3">
+					<Checkbox 
+						bind:checked={checkboxChecked}
+						label="Default Checkbox"
+					/>
+					<Checkbox 
+						checked={true}
+						label="Checked Checkbox"
+					/>
+					<Checkbox 
+						indeterminate={true}
+						label="Indeterminate Checkbox"
+					/>
+					<Checkbox 
+						disabled
+						label="Disabled Checkbox"
+					/>
+				</div>
+			</div>
+
+			<!-- Select Component -->
+			<div class="rounded-xl border bg-card/50 p-8 mb-8">
+				<h4 class="text-xl font-semibold mb-6">Select Component</h4>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+					<Select 
+						bind:value={selectValue}
+						options={selectOptions}
+						placeholder="Choose an option"
+						label="Default Select"
+					/>
+					<Select 
+						options={selectOptions}
+						placeholder="Choose multiple"
+						label="Multiple Select"
+						multiple
+					/>
+					<Select 
+						options={selectOptions}
+						placeholder="Required select"
+						label="Required Select"
+						required
+					/>
+					<Select 
+						options={selectOptions}
+						placeholder="Disabled select"
+						label="Disabled Select"
+						disabled
+					/>
+				</div>
+			</div>
+
+			<!-- Textarea Component -->
+			<div class="rounded-xl border bg-card/50 p-8 mb-8">
+				<h4 class="text-xl font-semibold mb-6">Textarea Component</h4>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+					<Textarea 
+						bind:value={textareaValue}
+						placeholder="Default textarea"
+						label="Default Textarea"
+					/>
+					<Textarea 
+						variant="filled"
+						placeholder="Filled textarea"
+						label="Filled Textarea"
+					/>
+					<Textarea 
+						resize="none"
+						placeholder="No resize"
+						label="No Resize Textarea"
+					/>
+					<Textarea 
+						resize="vertical"
+						placeholder="Vertical resize only"
+						label="Vertical Resize Textarea"
+					/>
+					<Textarea 
+						placeholder="Error textarea"
+						label="Error Textarea"
+						errorText="This field is required"
+					/>
+					<Textarea 
+						placeholder="Disabled textarea"
+						label="Disabled Textarea"
+						disabled
+					/>
+				</div>
+			</div>
+
+			<!-- Demo Values -->
+			<div class="rounded-xl border bg-card/50 p-8">
+				<h4 class="text-xl font-semibold mb-6">Current Form Values</h4>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+					<div class="space-y-2">
+						<p><strong>Input Value:</strong> <code class="bg-muted px-2 py-1 rounded">{inputValue || 'empty'}</code></p>
+						<p><strong>Checkbox Checked:</strong> <code class="bg-muted px-2 py-1 rounded">{checkboxChecked}</code></p>
+					</div>
+					<div class="space-y-2">
+						<p><strong>Select Value:</strong> <code class="bg-muted px-2 py-1 rounded">{selectValue || 'empty'}</code></p>
+						<p><strong>Textarea Value:</strong> <code class="bg-muted px-2 py-1 rounded">{textareaValue || 'empty'}</code></p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Button Examples -->
+		<section class="mb-16">
+			<h3 class="text-3xl font-bold mb-8 text-center">Interactive Button Examples</h3>
 			<div class="rounded-xl border bg-card/50 p-8">
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 					<div class="space-y-4">
