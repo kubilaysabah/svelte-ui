@@ -4,18 +4,30 @@
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
 	import Select from '$lib/components/ui/select.svelte';
 	import Textarea from '$lib/components/ui/textarea.svelte';
+	import Dropdown from '$lib/components/ui/dropdown.svelte';
 	import { initTheme, toggleTheme, isDarkMode } from '$lib/utils/theme.js';
+	import type { DropdownItem } from '$lib/types/dropdown.js';
 
 	let isDark = $state(false);
 	let inputValue = $state('');
 	let checkboxChecked = $state(false);
 	let selectValue = $state('');
 	let textareaValue = $state('');
+	let dropdownValue = $state(null);
 	
 	const selectOptions = [
 		{ value: 'option1', label: 'Option 1' },
 		{ value: 'option2', label: 'Option 2' },
 		{ value: 'option3', label: 'Option 3' }
+	];
+
+	const dropdownItems: DropdownItem[] = [
+		{ value: 'profile', label: 'Profile', icon: '👤' },
+		{ value: 'settings', label: 'Settings', icon: '⚙️' },
+		{ value: 'separator1', label: '', separator: true },
+		{ value: 'help', label: 'Help & Support', icon: '❓' },
+		{ value: 'separator2', label: '', separator: true },
+		{ value: 'logout', label: 'Logout', icon: '🚪' }
 	];
 
 	// Initialize theme system
@@ -344,6 +356,177 @@
 				</div>
 			</div>
 
+			<!-- Dropdown Component -->
+			<div class="space-y-6">
+				<h4 class="text-xl font-semibold">Dropdown Component</h4>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					<!-- Basic Dropdown -->
+					<div class="space-y-3">
+						<label for="dropdown-basic" class="text-sm font-medium">Basic Dropdown</label>
+						<Dropdown 
+							id="dropdown-basic"
+							items={dropdownItems}
+							bind:value={dropdownValue}
+							placeholder="Select Action..."
+							data-testid="dropdown-basic"
+						/>
+					</div>
+
+					<!-- Dropdown Variants -->
+					<div class="space-y-3">
+						<label for="dropdown-outline" class="text-sm font-medium">Outline Variant</label>
+						<Dropdown 
+							id="dropdown-outline"
+							items={dropdownItems}
+							variant="outline"
+							placeholder="Outline Dropdown"
+							data-testid="dropdown-outline"
+						/>
+					</div>
+
+					<div class="space-y-3">
+						<label for="dropdown-ghost" class="text-sm font-medium">Ghost Variant</label>
+						<Dropdown 
+							id="dropdown-ghost"
+							items={dropdownItems}
+							variant="ghost"
+							placeholder="Ghost Dropdown"
+							data-testid="dropdown-ghost"
+						/>
+					</div>
+
+					<div class="space-y-3">
+						<label for="dropdown-destructive" class="text-sm font-medium">Destructive Variant</label>
+						<Dropdown 
+							id="dropdown-destructive"
+							items={dropdownItems}
+							variant="destructive"
+							placeholder="Destructive Dropdown"
+							data-testid="dropdown-destructive"
+						/>
+					</div>
+
+					<!-- Dropdown Sizes -->
+					<div class="space-y-3">
+						<label for="dropdown-small" class="text-sm font-medium">Small Size</label>
+						<Dropdown 
+							id="dropdown-small"
+							items={dropdownItems}
+							size="sm"
+							placeholder="Small Dropdown"
+							data-testid="dropdown-small"
+						/>
+					</div>
+
+					<div class="space-y-3">
+						<label for="dropdown-large" class="text-sm font-medium">Large Size</label>
+						<Dropdown 
+							id="dropdown-large"
+							items={dropdownItems}
+							size="lg"
+							placeholder="Large Dropdown"
+							data-testid="dropdown-large"
+						/>
+					</div>
+
+					<!-- With Icons and Shortcuts -->
+					<div class="space-y-3">
+						<label for="dropdown-icons" class="text-sm font-medium">With Icons & Shortcuts</label>
+						<Dropdown 
+							id="dropdown-icons"
+							items={[
+								{ value: 'new', label: 'New File', icon: '📄', shortcut: '⌘N' },
+								{ value: 'open', label: 'Open...', icon: '📂', shortcut: '⌘O' },
+								{ value: 'save', label: 'Save', icon: '💾', shortcut: '⌘S' },
+								{ value: 'separator1', label: '', separator: true },
+								{ value: 'delete', label: 'Delete', icon: '🗑️', shortcut: '⌫' }
+							]}
+							placeholder="File Actions"
+							data-testid="dropdown-with-icons"
+						/>
+					</div>
+
+					<!-- With Separators -->
+					<div class="space-y-3">
+						<label for="dropdown-separators" class="text-sm font-medium">With Separators</label>
+						<Dropdown 
+							id="dropdown-separators"
+							items={[
+								{ value: 'edit', label: 'Edit', icon: '✏️' },
+								{ value: 'duplicate', label: 'Duplicate', icon: '📋' },
+								{ value: 'separator1', label: '', separator: true },
+								{ value: 'archive', label: 'Archive', icon: '📦' },
+								{ value: 'separator2', label: '', separator: true },
+								{ value: 'delete', label: 'Delete', icon: '🗑️' }
+							]}
+							placeholder="More Actions"
+							data-testid="dropdown-with-separators"
+						/>
+					</div>
+
+					<!-- With Selected Value -->
+					<div class="space-y-3">
+						<label for="dropdown-value" class="text-sm font-medium">With Pre-selected Value</label>
+						<Dropdown 
+							id="dropdown-value"
+							items={[
+								{ value: 'option1', label: 'First Option' },
+								{ value: 'option2', label: 'Second Option' },
+								{ value: 'option3', label: 'Third Option' }
+							]}
+							value="option2"
+							placeholder="Choose Option"
+							data-testid="dropdown-with-value"
+						/>
+					</div>
+
+					<!-- Disabled Items -->
+					<div class="space-y-3">
+						<label for="dropdown-disabled-items" class="text-sm font-medium">With Disabled Items</label>
+						<Dropdown 
+							id="dropdown-disabled-items"
+							items={[
+								{ value: 'available1', label: 'Available Option 1' },
+								{ value: 'available2', label: 'Available Option 2' },
+								{ value: 'disabled1', label: 'Disabled Option 1', disabled: true },
+								{ value: 'available3', label: 'Available Option 3' },
+								{ value: 'disabled2', label: 'Disabled Option 2', disabled: true }
+							]}
+							placeholder="Mixed States"
+							data-testid="dropdown-disabled-items"
+						/>
+					</div>
+
+					<!-- No Close on Select -->
+					<div class="space-y-3">
+						<label for="dropdown-no-close" class="text-sm font-medium">Stays Open</label>
+						<Dropdown 
+							id="dropdown-no-close"
+							items={[
+								{ value: 'option1', label: 'Keep Open Option 1' },
+								{ value: 'option2', label: 'Keep Open Option 2' },
+								{ value: 'option3', label: 'Keep Open Option 3' }
+							]}
+							closeOnSelect={false}
+							placeholder="Stays Open"
+							data-testid="dropdown-no-close"
+						/>
+					</div>
+
+					<!-- Disabled Dropdown -->
+					<div class="space-y-3">
+						<label for="dropdown-disabled" class="text-sm font-medium">Disabled Dropdown</label>
+						<Dropdown 
+							id="dropdown-disabled"
+							items={dropdownItems}
+							disabled
+							placeholder="Disabled Dropdown"
+							data-testid="dropdown-disabled"
+						/>
+					</div>
+				</div>
+			</div>
+
 			<!-- Demo Values -->
 			<div class="rounded-xl border bg-card/50 p-8">
 				<h4 class="text-xl font-semibold mb-6">Current Form Values</h4>
@@ -351,6 +534,7 @@
 					<div class="space-y-2">
 						<p><strong>Input Value:</strong> <code class="bg-muted px-2 py-1 rounded">{inputValue || 'empty'}</code></p>
 						<p><strong>Checkbox Checked:</strong> <code class="bg-muted px-2 py-1 rounded">{checkboxChecked}</code></p>
+						<p><strong>Dropdown Value:</strong> <code class="bg-muted px-2 py-1 rounded">{dropdownValue || 'empty'}</code></p>
 					</div>
 					<div class="space-y-2">
 						<p><strong>Select Value:</strong> <code class="bg-muted px-2 py-1 rounded">{selectValue || 'empty'}</code></p>

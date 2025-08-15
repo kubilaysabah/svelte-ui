@@ -1,7 +1,7 @@
 # @kubilaysabah/svelte-ui
 
 [![Production Ready](https://img.shields.io/badge/Status-Production%20Ready-success.svg)](https://github.com/kubilaysabah/svelte-ui)
-[![Tests](https://img.shields.io/badge/Tests-18%2F18%20Passing-brightgreen.svg)](https://github.com/kubilaysabah/svelte-ui)
+[![Tests](https://img.shields.io/badge/Tests-28%2F29%20Passing-brightgreen.svg)](https://github.com/kubilaysabah/svelte-ui)
 [![Svelte 5](https://img.shields.io/badge/Svelte-5-orange.svg)](https://svelte.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 
@@ -39,7 +39,7 @@ yarn add @kubilaysabah/svelte-ui
 
 ```svelte
 <script>
- import { Button, Input, Checkbox, Select, Textarea } from '@kubilaysabah/svelte-ui';
+ import { Button, Input, Checkbox, Select, Textarea, Dropdown } from '@kubilaysabah/svelte-ui';
  
  let inputValue = $state('');
  let isChecked = $state(false);
@@ -51,6 +51,13 @@ yarn add @kubilaysabah/svelte-ui
 ```
 
 ## 🎨 Available Components
+
+- **Button**: Interactive buttons with multiple variants and sizes
+- **Input**: Text input fields with validation and different types
+- **Checkbox**: Checkboxes with indeterminate state support
+- **Select**: Single and multiple selection dropdowns
+- **Textarea**: Multi-line text input with resize options
+- **Dropdown**: Action dropdowns with icons, shortcuts, and separators
 
 ### Button Component
 
@@ -155,6 +162,98 @@ yarn add @kubilaysabah/svelte-ui
 
 <!-- States -->
 <Select {options} placeholder="Disabled" label="Disabled Select" disabled />
+```
+
+### Dropdown Component
+
+```svelte
+<script>
+ import { Dropdown } from '@kubilaysabah/svelte-ui';
+ 
+ let selectedValue = $state(null);
+ 
+ const dropdownItems = [
+   { value: 'profile', label: 'Profile', icon: '👤' },
+   { value: 'settings', label: 'Settings', icon: '⚙️' },
+   { value: 'separator1', label: '', separator: true },
+   { value: 'help', label: 'Help & Support', icon: '❓' },
+   { value: 'logout', label: 'Logout', icon: '🚪' }
+ ];
+</script>
+
+<!-- Basic Dropdown -->
+<Dropdown bind:value={selectedValue} items={dropdownItems} placeholder="Select action..." />
+
+<!-- Variants -->
+<Dropdown items={dropdownItems} variant="outline" placeholder="Outline" />
+<Dropdown items={dropdownItems} variant="ghost" placeholder="Ghost" />
+<Dropdown items={dropdownItems} variant="destructive" placeholder="Destructive" />
+
+<!-- Sizes -->
+<Dropdown items={dropdownItems} size="sm" placeholder="Small" />
+<Dropdown items={dropdownItems} size="lg" placeholder="Large" />
+
+<!-- With Icons and Shortcuts -->
+<Dropdown 
+  items={[
+    { value: 'new', label: 'New File', icon: '📄', shortcut: '⌘N' },
+    { value: 'open', label: 'Open...', icon: '📂', shortcut: '⌘O' },
+    { value: 'save', label: 'Save', icon: '💾', shortcut: '⌘S' },
+    { value: 'separator1', label: '', separator: true },
+    { value: 'delete', label: 'Delete', icon: '🗑️' }
+  ]}
+  placeholder="File Actions"
+/>
+
+<!-- States -->
+<Dropdown items={dropdownItems} placeholder="Disabled" disabled />
+<Dropdown items={dropdownItems} closeOnSelect={false} placeholder="Stays Open" />
+```
+
+### Dropdown Component
+
+```svelte
+<script>
+ import { Dropdown } from '@kubilaysabah/svelte-ui';
+ 
+ let selectedValue = $state(null);
+ 
+ const dropdownItems = [
+   { value: 'profile', label: 'Profile', icon: '👤' },
+   { value: 'settings', label: 'Settings', icon: '⚙️' },
+   { value: 'separator1', label: '', separator: true },
+   { value: 'help', label: 'Help & Support', icon: '❓' },
+   { value: 'logout', label: 'Logout', icon: '🚪' }
+ ];
+</script>
+
+<!-- Basic Dropdown -->
+<Dropdown bind:value={selectedValue} items={dropdownItems} placeholder="Select action..." />
+
+<!-- Variants -->
+<Dropdown items={dropdownItems} variant="outline" placeholder="Outline" />
+<Dropdown items={dropdownItems} variant="ghost" placeholder="Ghost" />
+<Dropdown items={dropdownItems} variant="destructive" placeholder="Destructive" />
+
+<!-- Sizes -->
+<Dropdown items={dropdownItems} size="sm" placeholder="Small" />
+<Dropdown items={dropdownItems} size="lg" placeholder="Large" />
+
+<!-- With Icons and Shortcuts -->
+<Dropdown 
+  items={[
+    { value: 'new', label: 'New File', icon: '📄', shortcut: '⌘N' },
+    { value: 'open', label: 'Open...', icon: '📂', shortcut: '⌘O' },
+    { value: 'save', label: 'Save', icon: '💾', shortcut: '⌘S' },
+    { value: 'separator1', label: '', separator: true },
+    { value: 'delete', label: 'Delete', icon: '🗑️' }
+  ]}
+  placeholder="File Actions"
+/>
+
+<!-- States -->
+<Dropdown items={dropdownItems} disabled placeholder="Disabled" />
+<Dropdown items={dropdownItems} closeOnSelect={false} placeholder="Stays Open" />
 ```
 
 ### Textarea Component
