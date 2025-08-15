@@ -1,10 +1,8 @@
 // Components
-import Button from './components/ui/button.svelte';
-import Dropdown from './components/ui/dropdown.svelte';
-export { Button, Dropdown };
+export * from './components/index.js';
 
 // Utils
 export * from './utils/index.js';
 
 // Types
-export * from './types/index.js';
+export type * from './types/index.js';

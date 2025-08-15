@@ -6,8 +6,8 @@ Supports all native input attributes, validation states, and accessibility featu
 
 <script lang="ts">
 	import { cn } from '$lib/utils/cn.js';
-	import { inputVariants, inputLabelVariants, inputHelperVariants } from '$lib/utils/input-variants.js';
-	import type { InputProps } from '../../types/input.js';
+	import { inputVariants, inputLabelVariants, inputHelperVariants } from '../../utils/variants/input.js';
+	import type { InputProps } from '../../types/components/input.js';
 
 	let {
 		variant = 'default',

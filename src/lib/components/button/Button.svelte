@@ -6,8 +6,8 @@ Supports all native button attributes and events
 
 <script lang="ts">
 	import { cn } from '$lib/utils/cn.js';
-	import { buttonVariants } from '$lib/utils/button-variants.js';
-	import type { ButtonVariant, ButtonSize } from '../../types/button.js';
+	import { buttonVariants } from '../../utils/variants/button.js';
+	import type { ButtonVariant, ButtonSize } from '../../types/components/button.js';
 
 	interface Props {
 		variant?: ButtonVariant;

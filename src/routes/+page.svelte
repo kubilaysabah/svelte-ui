@@ -1,12 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-	import Input from '$lib/components/ui/input.svelte';
-	import Checkbox from '$lib/components/ui/checkbox.svelte';
-	import Select from '$lib/components/ui/select.svelte';
-	import Textarea from '$lib/components/ui/textarea.svelte';
-	import Dropdown from '$lib/components/ui/dropdown.svelte';
+	import { Button, Input, Checkbox, Select, Textarea, Dropdown } from '$lib/components';
 	import { initTheme, toggleTheme, isDarkMode } from '$lib/utils/theme.js';
-	import type { DropdownItem } from '$lib/types/dropdown.js';
+	import type { DropdownItem } from '$lib/types/components/dropdown.js';
 
 	let isDark = $state(false);
 	let inputValue = $state('');

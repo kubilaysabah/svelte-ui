@@ -1,4 +1,5 @@
-export * from './input.js';
-export * from './checkbox.js';
-export * from './select.js';
-export * from './textarea.js';
+// Component types
+export type * from './components/index.js';
+
+// Base types
+export type * from './components.js';

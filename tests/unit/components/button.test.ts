@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/svelte';
-import Button from './button.svelte';
+import { Button } from '../../../src/lib/components/button/index.js';
 
 describe('Button Component', () => {
 	it('renders with default props', () => {

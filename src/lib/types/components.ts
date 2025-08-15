@@ -1,14 +1,4 @@
-import type { HTMLAttributes, HTMLButtonAttributes } from 'svelte/elements';
-
-export type ButtonVariant = 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
-export type ButtonSize = 'default' | 'sm' | 'lg' | 'icon';
-
-export interface ButtonProps extends HTMLButtonAttributes {
-	variant?: ButtonVariant;
-	size?: ButtonSize;
-	asChild?: boolean;
-	class?: string;
-}
+import type { HTMLAttributes } from 'svelte/elements';
 
 export type HTMLDivAttributes = HTMLAttributes<HTMLDivElement>;
 export type HTMLSpanAttributes = HTMLAttributes<HTMLSpanElement>;

@@ -12,8 +12,8 @@ Supports different variants, sizes, alignment and comprehensive accessibility fe
 		dropdownItemVariants, 
 		dropdownSeparatorVariants,
 		dropdownShortcutVariants 
-	} from '$lib/utils/dropdown-variants.js';
-	import type { DropdownProps, DropdownItem } from '../../types/dropdown.js';
+	} from '../../utils/variants/dropdown.js';
+	import type { DropdownProps, DropdownItem } from '../../types/components/dropdown.js';
 
 	let {
 		variant = 'default',

@@ -6,8 +6,8 @@ Supports options, validation states, and accessibility features
 
 <script lang="ts">
 	import { cn } from '$lib/utils/cn.js';
-	import { selectVariants, selectLabelVariants, selectHelperVariants } from '$lib/utils/select-variants.js';
-	import type { SelectProps } from '../../types/select.js';
+	import { selectVariants, selectLabelVariants, selectHelperVariants } from '../../utils/variants/select.js';
+	import type { SelectProps } from '../../types/components/select.js';
 
 	let {
 		variant = 'default',

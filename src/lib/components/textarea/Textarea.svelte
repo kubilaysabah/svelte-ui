@@ -6,8 +6,8 @@ Supports all native textarea attributes, validation states, and accessibility fe
 
 <script lang="ts">
 	import { cn } from '$lib/utils/cn.js';
-	import { textareaVariants, textareaLabelVariants, textareaHelperVariants } from '$lib/utils/textarea-variants.js';
-	import type { TextareaProps } from '../../types/textarea.js';
+	import { textareaVariants, textareaLabelVariants, textareaHelperVariants } from '../../utils/variants/textarea.js';
+	import type { TextareaProps } from '../../types/components/textarea.js';
 
 	let {
 		variant = 'default',

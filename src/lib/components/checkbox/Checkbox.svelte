@@ -5,8 +5,8 @@ Checkbox component with support for indeterminate state, different sizes, and co
 
 <script lang="ts">
 	import { cn } from '$lib/utils/cn.js';
-	import { checkboxVariants, checkboxLabelVariants, checkboxDescriptionVariants } from '$lib/utils/checkbox-variants.js';
-	import type { CheckboxProps } from '../../types/checkbox.js';
+	import { checkboxVariants, checkboxLabelVariants, checkboxDescriptionVariants } from '../../utils/variants/checkbox.js';
+	import type { CheckboxProps } from '../../types/components/checkbox.js';
 
 	let {
 		checked = $bindable(false),
