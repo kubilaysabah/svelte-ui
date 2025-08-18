@@ -1,5 +1,15 @@
 <script lang="ts">
-	import { Button, Input } from '$components';
+	import { Button, Input, Modal } from '$components';
+
+	let showModal = $state(false);
+
+	function openModal() {
+		showModal = true;
+	}
+
+	function closeModal() {
+		showModal = false;
+	}
 </script>
 
 <main>
@@ -31,26 +41,62 @@
 
 	<div class="p-4">
 		<h2 class="mb-4 text-lg font-semibold">Input Examples</h2>
-		
+
 		<!-- Primary inputs -->
 		<div class="mb-4">
-			<h3 class="mb-2 text-md font-medium">Primary</h3>
-			<Input type="text" color="primary" size="small" placeholder="Small primary input" class="mb-2" />
-			<Input type="text" color="primary" size="medium" placeholder="Medium primary input" class="mb-2" />
-			<Input type="text" color="primary" size="large" placeholder="Large primary input" class="mb-2" />
+			<h3 class="text-md mb-2 font-medium">Primary</h3>
+			<Input
+				type="text"
+				color="primary"
+				size="small"
+				placeholder="Small primary input"
+				class="mb-2"
+			/>
+			<Input
+				type="text"
+				color="primary"
+				size="medium"
+				placeholder="Medium primary input"
+				class="mb-2"
+			/>
+			<Input
+				type="text"
+				color="primary"
+				size="large"
+				placeholder="Large primary input"
+				class="mb-2"
+			/>
 		</div>
 
 		<!-- Secondary inputs -->
 		<div class="mb-4">
-			<h3 class="mb-2 text-md font-medium">Secondary</h3>
-			<Input type="text" color="secondary" size="small" placeholder="Small secondary input" class="mb-2" />
-			<Input type="text" color="secondary" size="medium" placeholder="Medium secondary input" class="mb-2" />
-			<Input type="text" color="secondary" size="large" placeholder="Large secondary input" class="mb-2" />
+			<h3 class="text-md mb-2 font-medium">Secondary</h3>
+			<Input
+				type="text"
+				color="secondary"
+				size="small"
+				placeholder="Small secondary input"
+				class="mb-2"
+			/>
+			<Input
+				type="text"
+				color="secondary"
+				size="medium"
+				placeholder="Medium secondary input"
+				class="mb-2"
+			/>
+			<Input
+				type="text"
+				color="secondary"
+				size="large"
+				placeholder="Large secondary input"
+				class="mb-2"
+			/>
 		</div>
 
 		<!-- Other variants -->
 		<div class="mb-4">
-			<h3 class="mb-2 text-md font-medium">Other Colors</h3>
+			<h3 class="text-md mb-2 font-medium">Other Colors</h3>
 			<Input type="text" color="success" size="medium" placeholder="Success input" class="mb-2" />
 			<Input type="text" color="warning" size="medium" placeholder="Warning input" class="mb-2" />
 			<Input type="text" color="danger" size="medium" placeholder="Danger input" class="mb-2" />
@@ -58,8 +104,23 @@
 
 		<!-- Disabled -->
 		<div class="mb-4">
-			<h3 class="mb-2 text-md font-medium">Disabled</h3>
+			<h3 class="text-md mb-2 font-medium">Disabled</h3>
 			<Input type="text" color="primary" size="medium" placeholder="Disabled input" disabled />
 		</div>
 	</div>
+
+	<!-- Modal Test -->
+	<div class="mb-4">
+		<h3 class="text-md mb-2 font-medium">Modal Test</h3>
+		<Button onclick={openModal} color="primary" variant="fill">Open Modal</Button>
+	</div>
 </main>
+
+{#if showModal}
+	<Modal title="Test Modal" open={showModal} forceClose={closeModal} size="md" variant="default">
+		<p>This is a test modal content. You can add any content here.</p>
+		<div class="mt-4">
+			<Button onclick={closeModal} color="secondary" variant="outline">Close</Button>
+		</div>
+	</Modal>
+{/if}

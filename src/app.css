@@ -31,5 +31,5 @@
 	--color-secondary: var(--secondary);
 	--color-secondary-foreground: var(--secondary-foreground);
 	--color-background: var(--background);
-	--color-text: var(--text);
+	--color-foreground: var(--foreground);
 }

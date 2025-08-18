@@ -1,32 +1,6 @@
 <script lang="ts">
-	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import { cva, type VariantProps } from 'class-variance-authority';
-
-	// BEM-style: block = 'btn', modifiers = 'btn--<modifier>'
-	const button = cva('button', {
-		variants: {
-			variant: {
-				fill: 'button--fill',
-				outline: 'button--outline',
-				ghost: 'button--ghost'
-			},
-			color: {
-				primary: 'button--primary',
-				secondary: 'button--secondary'
-			},
-			size: {
-				small: 'button--small',
-				medium: 'button--medium',
-				large: 'button--large'
-			},
-			disabled: {
-				false: '',
-				true: 'button--disabled'
-			}
-		}
-	});
-
-	interface ButtonProps extends Omit<HTMLButtonAttributes, 'color' | 'size'>, VariantProps<typeof button> {}
+	import type { ButtonProps } from './types';
+	import { button } from './types';
 
 	const {
 		class: className,
@@ -52,57 +26,57 @@
 	}
 
 	/* disabled modifier */
-	.button--disabled,
+	.button-disabled,
 	.button:disabled {
 		@apply cursor-not-allowed opacity-50;
 	}
 
-	.button--small {
+	.button-small {
 		@apply px-4 py-2 text-sm;
 	}
 
-	.button--medium {
+	.button-medium {
 		@apply px-6 py-2.5 text-base;
 	}
 
-	.button--large {
+	.button-large {
 		@apply px-8 py-3 text-lg;
 	}
 
 	/* intent modifiers */
-	.button--primary.button--fill {
+	.button-primary.button-fill {
 		background-color: var(--color-primary);
 		color: var(--color-primary-foreground);
 	}
 
-	.button--primary.button--fill:hover {
+	.button-primary.button-fill:hover {
 		background-color: darken(var(--color-primary), 10%);
 		color: var(--color-primary-foreground);
 	}
 
-	.button--primary.button--outline {
+	.button-primary.button-outline {
 		background-color: var(--color-background);
 		border: 1px solid var(--color-primary);
 		color: var(--color-primary);
 	}
 
-	.button--primary.button--ghost {
+	.button-primary.button-ghost {
 		background-color: var(--color-background);
 		color: var(--color-primary);
 	}
 
-	.button--secondary.button--fill {
+	.button-secondary.button-fill {
 		background-color: var(--color-secondary);
 		color: var(--color-secondary-foreground);
 	}
 
-	.button--secondary.button--outline {
+	.button-secondary.button-outline {
 		background-color: var(--color-background);
 		border: 1px solid var(--color-primary);
 		color: var(--color-primary);
 	}
 
-	.button--secondary.button--ghost {
+	.button-secondary.button-ghost {
 		color: var(--color-primary);
 	}
 </style>
