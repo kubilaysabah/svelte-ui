@@ -3,13 +3,13 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-	--primary: oklch(0.205 0 0);
+	--primary: oklch(0.2058 0.0319 264.62);
 	--primary-foreground: oklch(1 0 0);
-	--secondary: oklch(0.3715 0 0);
+	--secondary: oklch(0.2825 0.0453 264.18);
 	--secondary-foreground: oklch(1 0 0);
 	--muted: oklch(0.97 0 0);
 	--muted-foreground: oklch(0.556 0 0);
-	--background: oklch(85.142% 0.0001 271.152);
+	--background: oklch(1 0 0);
 	--foreground: oklch(29.313% 0.00003 271.152);
 }
 
@@ -21,7 +21,7 @@
 	--muted: oklch(0.269 0 0);
 	--muted-foreground: oklch(0.708 0 0);
 	--background: oklch(0.1591 0 0);
-	--foreground: oklch(1 0 0);
+	--foreground: oklch(0.8157 0.1399 208.24);
 }
 
 @theme {

@@ -3,36 +3,35 @@
 	import { cva, type VariantProps } from 'class-variance-authority';
 
 	// BEM-style: block = 'btn', modifiers = 'btn--<modifier>'
-	const button = cva('btn', {
+	const button = cva('button', {
 		variants: {
 			variant: {
-				fill: 'btn--fill',
-				outline: 'btn--outline',
-				ghost: 'btn--ghost'
+				fill: 'button--fill',
+				outline: 'button--outline',
+				ghost: 'button--ghost'
 			},
-			intent: {
-				primary: 'btn--primary',
-				secondary: 'btn--secondary'
+			color: {
+				primary: 'button--primary',
+				secondary: 'button--secondary'
 			},
 			size: {
-				small: 'btn--small',
-				medium: 'btn--medium',
-				large: 'btn--large'
+				small: 'button--small',
+				medium: 'button--medium',
+				large: 'button--large'
 			},
 			disabled: {
 				false: '',
-				true: 'btn--disabled'
+				true: 'button--disabled'
 			}
 		}
-		// No compoundVariants necessary: prefer multiple modifier classes (BEM)
 	});
 
-	interface ButtonProps extends HTMLButtonAttributes, VariantProps<typeof button> {}
+	interface ButtonProps extends Omit<HTMLButtonAttributes, 'color' | 'size'>, VariantProps<typeof button> {}
 
 	const {
 		class: className,
 		disabled,
-		intent,
+		color,
 		size,
 		variant,
 		children,
@@ -40,7 +39,7 @@
 	}: ButtonProps = $props();
 </script>
 
-<button {...rest} class={button({ intent, size, variant, disabled, class: className })}>
+<button {...rest} {disabled} class={button({ color, size, variant, disabled, class: className })}>
 	{@render children?.()}
 </button>
 
@@ -48,61 +47,62 @@
 	@reference "tailwindcss";
 
 	/* base block */
-	.btn {
-		@apply inline-flex items-center justify-center rounded text-center font-medium;
+	.button {
+		@apply inline-flex items-center justify-center rounded text-center font-medium transition-all duration-100;
 	}
 
 	/* disabled modifier */
-	.btn--disabled,
-	.btn:disabled {
+	.button--disabled,
+	.button:disabled {
 		@apply cursor-not-allowed opacity-50;
 	}
 
-	.btn--small {
+	.button--small {
 		@apply px-4 py-2 text-sm;
 	}
 
-	.btn--medium {
+	.button--medium {
 		@apply px-6 py-2.5 text-base;
 	}
 
-	.btn--large {
+	.button--large {
 		@apply px-8 py-3 text-lg;
 	}
 
 	/* intent modifiers */
-	.btn--primary.btn--fill {
+	.button--primary.button--fill {
 		background-color: var(--color-primary);
 		color: var(--color-primary-foreground);
 	}
 
-	.btn--primary.btn--fill:hover {
-		background-color: var(--color-primary);
-		background-color: var(--color-primary-foreground);
+	.button--primary.button--fill:hover {
+		background-color: darken(var(--color-primary), 10%);
+		color: var(--color-primary-foreground);
 	}
 
-	.btn--primary.btn--outline {
-		background-color: transparent;
+	.button--primary.button--outline {
+		background-color: var(--color-background);
 		border: 1px solid var(--color-primary);
 		color: var(--color-primary);
 	}
 
-	.btn--primary.btn--ghost {
+	.button--primary.button--ghost {
+		background-color: var(--color-background);
 		color: var(--color-primary);
 	}
 
-	.btn--secondary.btn--fill {
+	.button--secondary.button--fill {
 		background-color: var(--color-secondary);
 		color: var(--color-secondary-foreground);
 	}
 
-	.btn--secondary.btn--outline {
-		background-color: transparent;
+	.button--secondary.button--outline {
+		background-color: var(--color-background);
 		border: 1px solid var(--color-primary);
 		color: var(--color-primary);
 	}
 
-	.btn--secondary.btn--ghost {
+	.button--secondary.button--ghost {
 		color: var(--color-primary);
 	}
 </style>
