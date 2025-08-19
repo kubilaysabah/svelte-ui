@@ -1,21 +1,6 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { BackdropProps } from './types';
 	import { cn } from '$lib/utils';
-
-	/**
-	 * Props for the Backdrop component
-	 */
-	interface BackdropProps extends HTMLAttributes<HTMLDialogElement> {
-		/** Function to call when the backdrop should close */
-		close?: () => void;
-		/** Child content to render inside the backdrop */
-		children?: Snippet;
-		/** Whether clicking outside should close the backdrop */
-		closeOnBackdropClick?: boolean;
-		/** Whether pressing Escape should close the backdrop */
-		closeOnEscape?: boolean;
-	}
 
 	const { 
 		class: className, 

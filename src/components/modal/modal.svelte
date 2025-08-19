@@ -57,20 +57,11 @@
 			backdrop.closeModal();
 		}
 	});
-
-	/**
-	 * Handles modal close with proper guard
-	 */
-	function handleClose(): void {
-		if (forceClose) {
-			forceClose();
-		}
-	}
 </script>
 
 <Backdrop 
 	bind:this={backdrop} 
-	close={handleClose}
+	close={forceClose}
 	closeOnBackdropClick={closeOnBackdropClick}
 	closeOnEscape={closeOnEscape}
 >
@@ -78,7 +69,7 @@
 		{#if title}
 			<div class="modal-header">
 				<h3 class="modal-title">{title}</h3>
-				<Button class="modal-close-button" onclick={handleClose}>
+				<Button class="modal-close-button" onclick={forceClose}>
 					<XIcon width={24} height={24} />
 				</Button>
 			</div>
