@@ -112,7 +112,7 @@
 	<!-- Modal Test -->
 	<div class="mb-4">
 		<h3 class="text-md mb-2 font-medium">Modal Test</h3>
-		<Button onclick={openModal} color="primary" variant="fill">Open Modal</Button>
+		<Button size="small" onclick={openModal} color="primary" variant="fill">Open Modal</Button>
 	</div>
 </main>
 
