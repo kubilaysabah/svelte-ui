@@ -49,11 +49,6 @@
 		color: var(--color-primary-foreground);
 	}
 
-	.button-primary.button-fill:hover {
-		background-color: darken(var(--color-primary), 10%);
-		color: var(--color-primary-foreground);
-	}
-
 	.button-primary.button-outline {
 		background-color: var(--color-background);
 		border: 1px solid var(--color-primary);
