@@ -1,50 +1,37 @@
 <script lang="ts">
-	import { ChevronDownIcon, ChevronUpIcon } from '@lucide/svelte';
+	import { ChevronDownIcon } from '@lucide/svelte';
+	import { cn } from '$lib/utils';
 	import { Button } from '$components';
+	import type { DropdownProps } from './types';
 
-	let isDropdownOpen = $state<boolean>(false);
-
-	const handleDropdownClick = () => {
-		isDropdownOpen = !isDropdownOpen; // togle state on click
-	};
-
-	const handleDropdownFocusLoss = ({
-		relatedTarget,
-		currentTarget
-	}: {
-		relatedTarget: EventTarget | null;
-		currentTarget: EventTarget | null;
-	}) => {
-		// use "focusout" event to ensure that we can close the dropdown when clicking outside or when we leave the dropdown with the "Tab" button
-		if (
-			relatedTarget instanceof HTMLElement &&
-			currentTarget instanceof HTMLElement &&
-			currentTarget.contains(relatedTarget)
-		)
-			return; // check if the new focus target doesn't present in the dropdown tree (exclude ul\li padding area because relatedTarget, in this case, will be null)
-		isDropdownOpen = false;
-	};
+	let isOpen = $state<boolean>(false);
+	let { label, placeholder, click, items = [] }: DropdownProps = $props();
 </script>
 
-<div class="flex items-center justify-between">
-	<div class="dropdown" onfocusout={handleDropdownFocusLoss}>
-		<button class="btn m-1" onclick={handleDropdownClick}>
-			{#if isDropdownOpen}
-				<ChevronDownIcon />
+<div class="relative max-w-fit">
+	<Button onclick={() => isOpen = !isOpen} size="small" variant="fill" color="primary">
+		<span>{label ? label : placeholder ? placeholder : 'Seçiniz'}</span>
+		<ChevronDownIcon class={cn('transition-all duration-150', isOpen ? 'rotate-180' : '')} />
+	</Button>
+	<nav
+		class="absolute z-10 mt-2 w-full rounded border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800"
+		class:!hidden={!isOpen}
+	>
+		{#each items as item}
+			{#if item.href}
+				<a href={item.href} class="cursor-pointer block w-full px-4 py-2 text-sm">
+					{item.label}
+				</a>
 			{:else}
-				<ChevronUpIcon />
+				<Button 
+					disabled={item.disabled} 
+					class="not-disabled:cursor-pointer block w-full px-4 py-2 text-sm" 
+					onclick={() => click?.(item)}>
+					{item.label}
+				</Button>
 			{/if}
-		</button>
-		<ul
-			class="dropdown-content menu bg-base-100 rounded-box w-52 p-2 shadow"
-			style:visibility={isDropdownOpen ? 'visible' : 'hidden'}
-		>
-			<li><Button>Item 1</Button></li>
-		</ul>
-	</div>
-	<p class="text-slate-300">
-		isDropdownOpen: {isDropdownOpen}
-	</p>
+		{/each}
+	</nav>
 </div>
 
 <style lang="postcss">
