@@ -4,7 +4,30 @@
 	import Button from './button.svelte';
 
 	const { Story } = defineMeta({
-		component: Button
+		component: Button,
+		title: 'Components/Button',
+		tags: ['autodocs'],
+		argTypes: {
+			variant: {
+				control: 'select',
+				options: ['fill', 'outline', 'ghost'],
+				description: 'Button style variant'
+			},
+			color: {
+				control: 'select', 
+				options: ['primary', 'secondary'],
+				description: 'Button color scheme'
+			},
+			size: {
+				control: 'select',
+				options: ['small', 'medium', 'large'],
+				description: 'Button size'
+			},
+			disabled: {
+				control: 'boolean',
+				description: 'Whether the button is disabled'
+			}
+		}
 	});
 </script>
 

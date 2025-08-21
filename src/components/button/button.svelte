@@ -2,18 +2,73 @@
 	import type { ButtonProps } from './types';
 	import { button } from './types';
 
+	// Destructure props using Svelte 5 $props() with default values
 	const {
 		class: className,
-		disabled,
-		color,
-		size,
-		variant,
+		disabled = false,
+		color = 'primary',
+		size = 'medium',
+		variant = 'fill',
 		children,
+		onclick,
 		...rest
 	}: ButtonProps = $props();
+
+	/**
+	 * Determines if the button should be in a disabled state
+	 * @returns True if button is disabled, false otherwise
+	 */
+	function isButtonDisabled(): boolean {
+		return Boolean(disabled);
+	}
+
+	/**
+	 * Generates the complete CSS class string for the button
+	 * Combines variant classes with custom className
+	 * @returns Computed CSS class string
+	 */
+	function getButtonClasses(): string {
+		return button({ 
+			color, 
+			size, 
+			variant, 
+			disabled: isButtonDisabled(), 
+			class: className 
+		});
+	}
+
+	/**
+	 * Handles button click events with proper disabled state checking
+	 * Prevents click handler execution when button is disabled
+	 * @param event - The mouse click event
+	 */
+	function handleClick(event: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement }): void {
+		// Early return if button is disabled
+		if (isButtonDisabled()) {
+			event.preventDefault();
+			event.stopPropagation();
+			return;
+		}
+
+		// Execute click handler if provided
+		if (onclick) {
+			onclick(event);
+		}
+	}
 </script>
 
-<button {...rest} {disabled} class={button({ color, size, variant, disabled, class: className })}>
+<!-- 
+	Semantic button element with accessibility features
+	Proper disabled state handling and ARIA attributes
+-->
+<button 
+	{...rest} 
+	disabled={isButtonDisabled()}
+	class={getButtonClasses()}
+	onclick={handleClick}
+	type={rest.type || 'button'}
+	tabindex={isButtonDisabled() ? -1 : 0}
+>
 	{@render children?.()}
 </button>
 

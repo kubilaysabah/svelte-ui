@@ -1,27 +1,72 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 
+/**
+ * Public instance methods available on the Backdrop component
+ * These methods provide programmatic control over the backdrop state
+ */
 export interface BackdropInstance {
-	/** Shows the modal dialog */
+	/** 
+	 * Opens the backdrop modal programmatically
+	 * Equivalent to setting open = true
+	 */
 	showModal: () => void;
-	/** Closes the modal dialog */
+	
+	/** 
+	 * Closes the backdrop modal programmatically
+	 * Equivalent to setting open = false
+	 */
 	closeModal: () => void;
-	/** Gets the dialog element reference */
+	
+	/** 
+	 * Gets a reference to the underlying native dialog element
+	 * Useful for advanced DOM manipulation or testing
+	 * @returns The HTMLDialogElement or undefined if not mounted
+	 */
 	getDialog: () => HTMLDialogElement | undefined;
-	/** Checks if the dialog is currently open */
+	
+	/** 
+	 * Checks if the backdrop is currently open
+	 * @returns True if open, false if closed
+	 */
 	isOpen: () => boolean;
 }
 
 /**
- * Props for the Backdrop component
+ * Configuration props for the Backdrop component
+ * Extends native HTMLDialogElement attributes for full flexibility
  */
 export interface BackdropProps extends HTMLAttributes<HTMLDialogElement> {
-	/** Function to call when the backdrop should close */
+	/** 
+	 * Custom function to execute when the backdrop should close
+	 * Takes precedence over the default closing behavior
+	 * Useful for implementing confirmation dialogs or cleanup logic
+	 */
 	close?: () => void;
-	/** Child content to render inside the backdrop */
+	
+	/** 
+	 * Svelte 5 snippet containing the modal content
+	 * Rendered inside the backdrop overlay
+	 */
 	children?: Snippet;
-	/** Whether clicking outside should close the backdrop */
+	
+	/** 
+	 * Whether clicking outside the modal content should close the backdrop
+	 * @default true
+	 */
 	closeOnBackdropClick?: boolean;
-	/** Whether pressing Escape should close the backdrop */
+	
+	/** 
+	 * Whether pressing the Escape key should close the backdrop
+	 * Follows accessibility best practices for modal dialogs
+	 * @default true
+	 */
 	closeOnEscape?: boolean;
+	
+	/** 
+	 * Controls the visibility state of the backdrop
+	 * This prop is bindable, enabling two-way data binding
+	 * @default false
+	 */
+	open?: boolean;
 }
