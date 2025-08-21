@@ -28,12 +28,12 @@
 		}
 	});
 
-	const { 
-		size, 
-		variant, 
-		title, 
-		children, 
-		forceClose, 
+	const {
+		size,
+		variant,
+		title,
+		children,
+		forceClose,
 		open = false,
 		closeOnBackdropClick = true,
 		closeOnEscape = true
@@ -59,17 +59,12 @@
 	});
 </script>
 
-<Backdrop 
-	bind:this={backdrop} 
-	close={forceClose}
-	closeOnBackdropClick={closeOnBackdropClick}
-	closeOnEscape={closeOnEscape}
->
+<Backdrop bind:this={backdrop} close={forceClose} {closeOnBackdropClick} {closeOnEscape}>
 	<div class={modal({ size, variant })}>
 		{#if title}
 			<div class="modal-header">
 				<h3 class="modal-title">{title}</h3>
-				<Button class="modal-close-button" onclick={forceClose}>
+				<Button size="large" variant="ghost" color="primary" onclick={forceClose}>
 					<XIcon width={24} height={24} />
 				</Button>
 			</div>
@@ -89,12 +84,12 @@
 	}
 
 	.modal-header {
-		@apply flex flex-wrap items-center justify-between p-4 border-b;
+		@apply flex flex-wrap items-center justify-between border-b p-4;
 	}
 
 	.modal-title {
 		color: var(--color-foreground);
-		@apply font-semibold text-xl;
+		@apply text-xl font-semibold;
 	}
 
 	.modal-body {

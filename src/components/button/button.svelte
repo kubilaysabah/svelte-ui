@@ -100,6 +100,7 @@
 
 	/* intent modifiers */
 	.button-primary.button-fill {
+		border: 1px solid var(--color-primary);
 		background-color: var(--color-primary);
 		color: var(--color-primary-foreground);
 	}
