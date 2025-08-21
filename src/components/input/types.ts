@@ -1,5 +1,6 @@
 import type { HTMLInputAttributes } from 'svelte/elements';
 import { cva, type VariantProps } from 'class-variance-authority';
+import type { Snippet } from 'svelte';
 
 export const input = cva('input', {
 	variants: {
@@ -23,5 +24,8 @@ export const input = cva('input', {
 });
 
 export interface InputProps
-	extends Omit<HTMLInputAttributes, 'size' | 'color'>,
-		VariantProps<typeof input> {}
+	extends Omit<HTMLInputAttributes, 'size' | 'color' | 'prefix'>,
+		VariantProps<typeof input> {
+			prefix?: Snippet;
+			suffix?: Snippet;
+		}

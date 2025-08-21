@@ -107,20 +107,55 @@
 			<h3 class="text-md mb-2 font-medium">Disabled</h3>
 			<Input type="text" color="primary" size="medium" placeholder="Disabled input" disabled />
 		</div>
-	</div>
 
-	<!-- Modal Test -->
-	<div class="mb-4">
-		<h3 class="text-md mb-2 font-medium">Modal Test</h3>
-		<Button size="small" onclick={openModal} color="primary" variant="fill">Open Modal</Button>
+		<!-- With Prefix and Suffix -->
+		<div class="mb-4">
+			<h3 class="text-md mb-2 font-medium">With Prefix and Suffix</h3>
+			
+			<!-- Input with prefix -->
+			<Input type="text" color="primary" size="medium" placeholder="Enter amount" class="mb-2">
+				{#snippet prefix()}
+					<span class="px-2 text-gray-500">$</span>
+				{/snippet}
+			</Input>
+
+			<!-- Input with suffix -->
+			<Input type="email" color="primary" size="medium" placeholder="Enter your email" class="mb-2">
+				{#snippet suffix()}
+					<span class="px-2 text-gray-500">@example.com</span>
+				{/snippet}
+			</Input>
+
+			<!-- Input with both prefix and suffix -->
+			<Input type="text" color="primary" size="medium" placeholder="Search" class="mb-2">
+				{#snippet prefix()}
+					<span class="px-2 text-gray-500">🔍</span>
+				{/snippet}
+				{#snippet suffix()}
+					<button class="px-2 text-blue-500 hover:text-blue-700">Clear</button>
+				{/snippet}
+			</Input>
+		</div>
+
+		<!-- Modal Test -->
+		<div class="mb-4">
+			<h3 class="text-md mb-2 font-medium">Modal Test</h3>
+			<Button size="small" onclick={openModal} color="primary" variant="fill">Open Modal</Button>
+		</div>
+
+		{#if showModal}
+			<Modal
+				title="Test Modal"
+				open={showModal}
+				forceClose={closeModal}
+				size="md"
+				variant="default"
+			>
+				<p>This is a test modal content. You can add any content here.</p>
+				<div class="mt-4">
+					<Button onclick={closeModal} color="secondary" variant="outline">Close</Button>
+				</div>
+			</Modal>
+		{/if}
 	</div>
 </main>
-
-{#if showModal}
-	<Modal title="Test Modal" open={showModal} forceClose={closeModal} size="md" variant="default">
-		<p>This is a test modal content. You can add any content here.</p>
-		<div class="mt-4">
-			<Button onclick={closeModal} color="secondary" variant="outline">Close</Button>
-		</div>
-	</Modal>
-{/if}

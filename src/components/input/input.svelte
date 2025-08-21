@@ -7,13 +7,25 @@
 		color = 'primary',
 		size = 'medium',
 		disabled = false,
+		prefix,
+		suffix,
 		...rest
 	}: InputProps = $props();
 </script>
 
-ş
-
-<input {type} {disabled} class={input({ color, size, disabled, class: className })} {...rest} />
+<div class="flex flex-wrap">
+	{#if prefix}
+		<div class="prefix">
+			{@render prefix()}
+		</div>
+	{/if}
+	<input {type} {disabled} class={input({ color, size, disabled, class: className })} {...rest} />
+	{#if suffix}
+		<div class="suffix">
+			{@render suffix()}
+		</div>
+	{/if}
+</div>
 
 <style lang="postcss">
 	@reference "tailwindcss";
@@ -21,7 +33,7 @@
 	/* base input styles */
 	.input {
 		background-color: var(--color-background);
-		@apply w-full rounded border px-3 py-2 transition-colors focus:ring-2 focus:outline-none;
+		@apply flex-1 w-full rounded border px-3 py-2 transition-colors focus:ring-2 focus:outline-none;
 	}
 
 	/* disabled modifier */
@@ -64,5 +76,10 @@
 
 	.input-warning {
 		@apply border-yellow-300 text-yellow-500 focus:border-yellow-500 focus:ring-yellow-500;
+	}
+
+	.prefix,
+	.suffix {
+		@apply w-5;
 	}
 </style>
