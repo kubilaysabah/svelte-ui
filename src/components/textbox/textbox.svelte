@@ -54,15 +54,15 @@
 	}
 
 	/* size modifiers */
-	.textbox-small {
+	.textbox-small input {
 		@apply px-2 py-1 text-sm;
 	}
 
-	.textbox-medium {
+	.textbox-medium input {
 		@apply px-3 py-2 text-base;
 	}
 
-	.textbox-large {
+	.textbox-large input {
 		@apply px-4 py-3 text-lg;
 	}
 
