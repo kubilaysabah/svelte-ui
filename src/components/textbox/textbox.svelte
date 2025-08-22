@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { type InputProps, input } from './types';
-	import type { Snippet } from 'svelte';
+	import { type TextBoxProps, textbox } from './types';
 
 	const {
 		type,
@@ -11,15 +10,10 @@
 		prefix,
 		suffix,
 		...rest
-	}: InputProps = $props();
-
-	// Helper function to check if value is a snippet
-	function isSnippet(value: unknown): value is Snippet {
-		return value instanceof Function;
-	}
+	}: TextBoxProps = $props();
 </script>
 
-<div class="input-container">
+<div class={textbox({ color, size, disabled, class: className })}>
 	{#if prefix}
 		{#if typeof prefix === 'string'}
 			<div class="prefix">
@@ -29,7 +23,7 @@
 			{@render prefix()}
 		{/if}
 	{/if}
-	<input {type} {disabled} class={input({ color, size, disabled, class: className })} {...rest} />
+	<input {type} {disabled} {...rest} />
 	{#if suffix}
 		{#if typeof suffix === 'string'}
 			<div class="suffix">
@@ -44,62 +38,71 @@
 <style lang="postcss">
 	@reference "tailwindcss";
 
-	.input-container {
+	.textbox {
 		@apply flex flex-wrap overflow-hidden rounded border transition-colors focus:ring-2 focus:outline-none;
 	}
 
-	/* base input styles */
-	.input {
+	/* base textbox styles */
+	.textbox input {
 		background-color: var(--color-background);
 		@apply w-full flex-1 focus:outline-none;
 	}
 
 	/* disabled modifier */
-	.input-disabled,
-	.input:disabled {
+	.textbox-disabled {
 		@apply cursor-not-allowed opacity-50;
 	}
 
 	/* size modifiers */
-	.input-small {
+	.textbox-small {
 		@apply px-2 py-1 text-sm;
 	}
 
-	.input-medium {
+	.textbox-medium {
 		@apply px-3 py-2 text-base;
 	}
 
-	.input-large {
+	.textbox-large {
 		@apply px-4 py-3 text-lg;
 	}
 
 	/* color modifiers */
-	.input-primary {
+	.textbox-primary:not(.textbox-disabled) {
 		border-color: var(--color-primary);
 		color: var(--color-primary);
 	}
 
-	.input-secondary {
+	.textbox-secondary:not(.textbox-disabled) {
 		border-color: var(--color-secondary);
 		color: var(--color-secondary);
 	}
 
-	.input-danger {
+	.textbox-danger:not(.textbox-disabled) {
 		@apply border-red-300 text-red-500 focus:border-red-500 focus:ring-red-500;
 	}
 
-	.input-success {
+	.textbox-success:not(.textbox-disabled) {
 		@apply border-green-300 text-green-500 focus:border-green-500 focus:ring-green-500;
 	}
 
-	.input-warning {
+	.textbox-warning:not(.textbox-disabled) {
 		@apply border-yellow-300 text-yellow-500 focus:border-yellow-500 focus:ring-yellow-500;
 	}
 
 	.prefix,
 	.suffix {
 		@apply flex w-20 items-center justify-center;
+	}
+
+	.textbox-primary:not(.textbox-disabled) .prefix,
+	.textbox-primary:not(.textbox-disabled) .suffix {
 		background-color: var(--color-primary);
 		color: var(--color-primary-foreground);
+	}
+
+	.textbox-secondary:not(.textbox-disabled) .prefix,
+	.textbox-secondary:not(.textbox-disabled) .suffix {
+		background-color: var(--color-secondary);
+		color: var(--color-secondary-foreground);
 	}
 </style>
