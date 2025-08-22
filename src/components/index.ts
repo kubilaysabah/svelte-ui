@@ -1,4 +1,4 @@
 export * from './backdrop';
 export * from './button';
-export * from './input';
+export * from './textbox';
 export * from './modal';

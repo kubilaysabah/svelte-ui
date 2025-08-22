@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { type InputProps, input } from './types';
+	import type { Snippet } from 'svelte';
 
 	const {
 		type,
@@ -11,29 +12,46 @@
 		suffix,
 		...rest
 	}: InputProps = $props();
+
+	// Helper function to check if value is a snippet
+	function isSnippet(value: unknown): value is Snippet {
+		return value instanceof Function;
+	}
 </script>
 
-<div class="flex flex-wrap">
+<div class="input-container">
 	{#if prefix}
-		<div class="prefix">
+		{#if typeof prefix === 'string'}
+			<div class="prefix">
+				{prefix}
+			</div>
+		{:else}
 			{@render prefix()}
-		</div>
+		{/if}
 	{/if}
 	<input {type} {disabled} class={input({ color, size, disabled, class: className })} {...rest} />
 	{#if suffix}
-		<div class="suffix">
+		{#if typeof suffix === 'string'}
+			<div class="suffix">
+				{suffix}
+			</div>
+		{:else}
 			{@render suffix()}
-		</div>
+		{/if}
 	{/if}
 </div>
 
 <style lang="postcss">
 	@reference "tailwindcss";
 
+	.input-container {
+		@apply flex flex-wrap overflow-hidden rounded border transition-colors focus:ring-2 focus:outline-none;
+	}
+
 	/* base input styles */
 	.input {
 		background-color: var(--color-background);
-		@apply flex-1 w-full rounded border px-3 py-2 transition-colors focus:ring-2 focus:outline-none;
+		@apply w-full flex-1 focus:outline-none;
 	}
 
 	/* disabled modifier */
@@ -80,6 +98,8 @@
 
 	.prefix,
 	.suffix {
-		@apply w-5;
+		@apply flex w-20 items-center justify-center;
+		background-color: var(--color-primary);
+		color: var(--color-primary-foreground);
 	}
 </style>

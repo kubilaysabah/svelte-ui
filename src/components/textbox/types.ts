@@ -19,13 +19,21 @@ export const input = cva('input', {
 		disabled: {
 			false: '',
 			true: 'input-disabled'
+		},
+		prefix: {
+			false: '',
+			true: 'input-prefix'
+		},
+		suffix: {
+			false: '',
+			true: 'input-suffix'
 		}
 	}
 });
 
-export interface InputProps
-	extends Omit<HTMLInputAttributes, 'size' | 'color' | 'prefix'>,
-		VariantProps<typeof input> {
-			prefix?: Snippet;
-			suffix?: Snippet;
+export interface TextBoxProps
+	extends Omit<HTMLInputAttributes, 'size' | 'color' | 'prefix' | 'suffix'>,
+		Omit<VariantProps<typeof input>, 'prefix' | 'suffix'> {
+			prefix?: string | Snippet;
+			suffix?: string | Snippet;
 		}
