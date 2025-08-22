@@ -1,5 +1,4 @@
 <script module lang="ts">
-	import { ArrowDown } from '@lucide/svelte';
 	import { defineMeta } from '@storybook/addon-svelte-csf';
 	import TextBox from './textbox.svelte';
 
