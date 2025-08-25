@@ -1,2 +1,7 @@
-export { default as Switch } from './switch.svelte'
-export * from './types'
+import Root from "./switch.svelte";
+
+export {
+	Root,
+	//
+	Root as Switch,
+};

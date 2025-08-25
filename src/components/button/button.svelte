@@ -1,133 +1,80 @@
-<script lang="ts">
-	import type { ButtonProps } from './types';
-	import { button } from './types';
+<script lang="ts" module>
+	import { cn, type WithElementRef } from "@/utils.js";
+	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from "svelte/elements";
+	import { type VariantProps, tv } from "tailwind-variants";
 
-	// Destructure props using Svelte 5 $props() with default values
-	const {
-		class: className,
-		disabled = false,
-		color = 'primary',
-		size = 'medium',
-		variant = 'fill',
-		children,
-		onclick,
-		...rest
-	}: ButtonProps = $props();
+	export const buttonVariants = tv({
+		base: "focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none transition-all focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+		variants: {
+			variant: {
+				default: "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
+				destructive:
+					"bg-destructive shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60 text-white",
+				outline:
+					"bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 border",
+				secondary: "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+				ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+				link: "text-primary underline-offset-4 hover:underline",
+			},
+			size: {
+				default: "h-9 px-4 py-2 has-[>svg]:px-3",
+				sm: "h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5",
+				lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
+				icon: "size-9",
+			},
+		},
+		defaultVariants: {
+			variant: "default",
+			size: "default",
+		},
+	});
 
-	/**
-	 * Determines if the button should be in a disabled state
-	 * @returns True if button is disabled, false otherwise
-	 */
-	function isButtonDisabled(): boolean {
-		return Boolean(disabled);
-	}
+	export type ButtonVariant = VariantProps<typeof buttonVariants>["variant"];
+	export type ButtonSize = VariantProps<typeof buttonVariants>["size"];
 
-	/**
-	 * Generates the complete CSS class string for the button
-	 * Combines variant classes with custom className
-	 * @returns Computed CSS class string
-	 */
-	function getButtonClasses(): string {
-		return button({ 
-			color, 
-			size, 
-			variant, 
-			disabled: isButtonDisabled(), 
-			class: className 
-		});
-	}
-
-	/**
-	 * Handles button click events with proper disabled state checking
-	 * Prevents click handler execution when button is disabled
-	 * @param event - The mouse click event
-	 */
-	function handleClick(event: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement }): void {
-		// Early return if button is disabled
-		if (isButtonDisabled()) {
-			event.preventDefault();
-			event.stopPropagation();
-			return;
-		}
-
-		// Execute click handler if provided
-		if (onclick) {
-			onclick(event);
-		}
-	}
+	export type ButtonProps = WithElementRef<HTMLButtonAttributes> &
+		WithElementRef<HTMLAnchorAttributes> & {
+			variant?: ButtonVariant;
+			size?: ButtonSize;
+		};
 </script>
 
-<!-- 
-	Semantic button element with accessibility features
-	Proper disabled state handling and ARIA attributes
--->
-<button 
-	{...rest} 
-	disabled={isButtonDisabled()}
-	class={getButtonClasses()}
-	onclick={handleClick}
-	type={rest.type || 'button'}
-	tabindex={isButtonDisabled() ? -1 : 0}
->
-	{@render children?.()}
-</button>
+<script lang="ts">
+	let {
+		class: className,
+		variant = "default",
+		size = "default",
+		ref = $bindable(null),
+		href = undefined,
+		type = "button",
+		disabled,
+		children,
+		...restProps
+	}: ButtonProps = $props();
+</script>
 
-<style lang="postcss">
-	@reference "tailwindcss";
-
-	/* base block */
-	.button {
-		@apply inline-flex items-center justify-center rounded text-center font-medium transition-all duration-100;
-	}
-
-	/* disabled modifier */
-	.button-disabled,
-	.button:disabled {
-		@apply cursor-not-allowed opacity-50;
-	}
-
-	.button-small {
-		@apply px-4 py-2 text-sm;
-	}
-
-	.button-medium {
-		@apply px-6 py-2.5 text-base;
-	}
-
-	.button-large {
-		@apply px-8 py-3 text-lg;
-	}
-
-	/* intent modifiers */
-	.button-primary.button-fill {
-		border: 1px solid var(--color-primary);
-		background-color: var(--color-primary);
-		color: var(--color-primary-foreground);
-	}
-
-	.button-primary.button-outline {
-		background-color: var(--color-background);
-		border: 1px solid var(--color-primary);
-		color: var(--color-primary);
-	}
-
-	.button-primary.button-ghost {
-		background-color: var(--color-background);
-		color: var(--color-primary);
-	}
-
-	.button-secondary.button-fill {
-		background-color: var(--color-secondary);
-		color: var(--color-secondary-foreground);
-	}
-
-	.button-secondary.button-outline {
-		background-color: var(--color-background);
-		border: 1px solid var(--color-primary);
-		color: var(--color-primary);
-	}
-
-	.button-secondary.button-ghost {
-		color: var(--color-primary);
-	}
-</style>
+{#if href}
+	<a
+		bind:this={ref}
+		data-slot="button"
+		class={cn(buttonVariants({ variant, size }), className)}
+		href={disabled ? undefined : href}
+		aria-disabled={disabled}
+		role={disabled ? "link" : undefined}
+		tabindex={disabled ? -1 : undefined}
+		{...restProps}
+	>
+		{@render children?.()}
+	</a>
+{:else}
+	<button
+		bind:this={ref}
+		data-slot="button"
+		class={cn(buttonVariants({ variant, size }), className)}
+		{type}
+		{disabled}
+		{...restProps}
+	>
+		{@render children?.()}
+	</button>
+{/if}
