@@ -1,54 +1,30 @@
-import { Menubar as MenubarPrimitive } from "bits-ui";
-import Root from "./menubar.svelte";
-import CheckboxItem from "./menubar-checkbox-item.svelte";
-import Content from "./menubar-content.svelte";
-import Item from "./menubar-item.svelte";
-import Group from "./menubar-group.svelte";
-import RadioItem from "./menubar-radio-item.svelte";
-import Separator from "./menubar-separator.svelte";
-import Shortcut from "./menubar-shortcut.svelte";
-import SubContent from "./menubar-sub-content.svelte";
-import SubTrigger from "./menubar-sub-trigger.svelte";
-import Trigger from "./menubar-trigger.svelte";
-import Label from "./menubar-label.svelte";
-import GroupHeading from "./menubar-group-heading.svelte";
+export * from "./menubar.svelte";
+export * from "./menubar-checkbox-item.svelte";
+export * from "./menubar-content.svelte";
+export * from "./menubar-item.svelte";
+export * from "./menubar-group.svelte";
+export * from "./menubar-radio-item.svelte";
+export * from "./menubar-separator.svelte";
+export * from "./menubar-shortcut.svelte";
+export * from "./menubar-sub-content.svelte";
+export * from "./menubar-sub-trigger.svelte";
+export * from "./menubar-trigger.svelte";
+export * from "./menubar-label.svelte";
+export * from "./menubar-group-heading.svelte";
 
-const Menu = MenubarPrimitive.Menu;
-const Sub = MenubarPrimitive.Sub;
-const RadioGroup = MenubarPrimitive.RadioGroup;
+export { default as MenubarRoot } from "./menubar.svelte";
+export { default as MenubarCheckboxItem } from "./menubar-checkbox-item.svelte";
+export { default as MenubarContent } from "./menubar-content.svelte";
+export { default as MenubarItem } from "./menubar-item.svelte";
+export { default as MenubarGroup } from "./menubar-group.svelte";
+export { default as MenubarRadioItem } from "./menubar-radio-item.svelte";
+export { default as MenubarSeparator } from "./menubar-separator.svelte";
+export { default as MenubarShortcut } from "./menubar-shortcut.svelte";
+export { default as MenubarSubContent } from "./menubar-sub-content.svelte";
+export { default as MenubarSubTrigger } from "./menubar-sub-trigger.svelte";
+export { default as MenubarTrigger } from "./menubar-trigger.svelte";
+export { default as MenubarLabel } from "./menubar-label.svelte";
+export { default as MenubarGroupHeading } from "./menubar-group-heading.svelte";
 
-export {
-	Root,
-	CheckboxItem,
-	Content,
-	Item,
-	RadioItem,
-	Separator,
-	Shortcut,
-	SubContent,
-	SubTrigger,
-	Trigger,
-	Menu,
-	Group,
-	Sub,
-	RadioGroup,
-	Label,
-	GroupHeading,
-	//
-	Root as Menubar,
-	CheckboxItem as MenubarCheckboxItem,
-	Content as MenubarContent,
-	Item as MenubarItem,
-	RadioItem as MenubarRadioItem,
-	Separator as MenubarSeparator,
-	Shortcut as MenubarShortcut,
-	SubContent as MenubarSubContent,
-	SubTrigger as MenubarSubTrigger,
-	Trigger as MenubarTrigger,
-	Menu as MenubarMenu,
-	Group as MenubarGroup,
-	Sub as MenubarSub,
-	RadioGroup as MenubarRadioGroup,
-	Label as MenubarLabel,
-	GroupHeading as MenubarGroupHeading,
-};
+// Re-export bits-ui primitives
+export { Menubar } from "bits-ui";

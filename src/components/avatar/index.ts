@@ -1,13 +1,7 @@
-import Root from "./avatar.svelte";
-import Image from "./avatar-image.svelte";
-import Fallback from "./avatar-fallback.svelte";
+export * from "./avatar.svelte";
+export * from "./avatar-image.svelte";
+export * from "./avatar-fallback.svelte";
 
-export {
-	Root,
-	Image,
-	Fallback,
-	//
-	Root as Avatar,
-	Image as AvatarImage,
-	Fallback as AvatarFallback,
-};
+export { default as Avatar } from "./avatar.svelte";
+export { default as AvatarImage } from "./avatar-image.svelte";
+export { default as AvatarFallback } from "./avatar-fallback.svelte";

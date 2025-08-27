@@ -1,131 +1,131 @@
 // Accordion
-export * as Accordion from "./accordion/index.js";
+export * from "./accordion";
 
 // Alert
-export * as Alert from "./alert/index.js";
+export * from "./alert";
 
 // Avatar
-export * as Avatar from "./avatar/index.js";
+export * from "./avatar";
 
 // Badge
-export * as Badge from "./badge/index.js";
+export * from "./badge";
 
 // Breadcrumb
-export * as Breadcrumb from "./breadcrumb/index.js";
+export * from "./breadcrumb";
 
 // Button
-export * as Button from "./button/index.js";
+export * from "./button";
 
 // Calendar
-export * as Calendar from "./calendar/index.js";
+export * from "./calendar";
 
 // Card
-export * as Card from "./card/index.js";
+export * from "./card";
 
 // Carousel
-export * as Carousel from "./carousel/index.js";
+export * from "./carousel";
 
 // Checkbox
-export * as Checkbox from "./checkbox/index.js";
+export * from "./checkbox";
 
 // Collapsible
-export * as Collapsible from "./collapsible/index.js";
+export * from "./collapsible";
 
 // Command
-export * as Command from "./command/index.js";
+export * from "./command";
 
 // Context Menu
-export * as ContextMenu from "./context-menu/index.js";
+export * from "./context-menu";
 
 // Data Table
-export * as DataTable from "./data-table/index.js";
+export * from "./data-table";
 
 // Dialog
-export * as Dialog from "./dialog/index.js";
+export * from "./dialog";
 
 // Drawer
-export * as Drawer from "./drawer/index.js";
+export * from "./drawer";
 
 // Dropdown Menu
-export * as DropdownMenu from "./dropdown-menu/index.js";
+export * from "./dropdown-menu";
 
 // Form
-export * as Form from "./form/index.js";
+export * from "./form";
 
 // Hover Card
-export * as HoverCard from "./hover-card/index.js";
+export * from "./hover-card";
 
 // Input
-export * as Input from "./input/index.js";
+export * from "./input";
 
 // Input OTP
-export * as InputOTP from "./input-otp/index.js";
+export * from "./input-otp";
 
 // Label
-export * as Label from "./label/index.js";
+export * from "./label";
 
 // Menubar
-export * as Menubar from "./menubar/index.js";
+export * from "./menubar";
 
 // Navigation Menu
-export * as NavigationMenu from "./navigation-menu/index.js";
+export * from "./navigation-menu";
 
 // Pagination
-export * as Pagination from "./pagination/index.js";
+export * from "./pagination";
 
 // Popover
-export * as Popover from "./popover/index.js";
+export * from "./popover";
 
 // Progress
-export * as Progress from "./progress/index.js";
+export * from "./progress";
 
 // Radio Group
-export * as RadioGroup from "./radio-group/index.js";
+export * from "./radio-group";
 
 // Range Calendar
-export * as RangeCalendar from "./range-calendar/index.js";
+export * from "./range-calendar";
 
 // Resizable
-export * as Resizable from "./resizable/index.js";
+export * from "./resizable";
 
 // Scroll Area
-export * as ScrollArea from "./scroll-area/index.js";
+export * from "./scroll-area";
 
 // Select
-export * as Select from "./select/index.js";
+export * from "./select";
 
 // Separator
-export * as Separator from "./separator/index.js";
+export * from "./separator";
 
 // Sheet
-export * as Sheet from "./sheet/index.js";
+export * from "./sheet";
 
 // Skeleton
-export * as Skeleton from "./skeleton/index.js";
+export * from "./skeleton";
 
 // Slider
-export * as Slider from "./slider/index.js";
+export * from "./slider";
 
 // Sonner
-export * as Sonner from "./sonner/index.js";
+export * from "./sonner";
 
 // Switch
-export * as Switch from "./switch/index.js";
+export * from "./switch";
 
 // Table
-export * as Table from "./table/index.js";
+export * from "./table";
 
 // Tabs
-export * as Tabs from "./tabs/index.js";
+export * from "./tabs";
 
 // Textarea
-export * as Textarea from "./textarea/index.js";
+export * from "./textarea";
 
 // Toggle
-export * as Toggle from "./toggle/index.js";
+export * from "./toggle";
 
 // Toggle Group
-export * as ToggleGroup from "./toggle-group/index.js";
+export * from "./toggle-group";
 
 // Tooltip
-export * as Tooltip from "./tooltip/index.js";
+export * from "./tooltip";

@@ -1,41 +1,24 @@
-import { Drawer as DrawerPrimitive } from "vaul-svelte";
+export * from "./drawer.svelte";
+export * from "./drawer-content.svelte";
+export * from "./drawer-description.svelte";
+export * from "./drawer-overlay.svelte";
+export * from "./drawer-footer.svelte";
+export * from "./drawer-header.svelte";
+export * from "./drawer-title.svelte";
+export * from "./drawer-nested.svelte";
+export * from "./drawer-close.svelte";
+export * from "./drawer-trigger.svelte";
 
-import Root from "./drawer.svelte";
-import Content from "./drawer-content.svelte";
-import Description from "./drawer-description.svelte";
-import Overlay from "./drawer-overlay.svelte";
-import Footer from "./drawer-footer.svelte";
-import Header from "./drawer-header.svelte";
-import Title from "./drawer-title.svelte";
-import NestedRoot from "./drawer-nested.svelte";
-import Close from "./drawer-close.svelte";
-import Trigger from "./drawer-trigger.svelte";
+export { default as DrawerRoot } from "./drawer.svelte";
+export { default as DrawerContent } from "./drawer-content.svelte";
+export { default as DrawerDescription } from "./drawer-description.svelte";
+export { default as DrawerOverlay } from "./drawer-overlay.svelte";
+export { default as DrawerFooter } from "./drawer-footer.svelte";
+export { default as DrawerHeader } from "./drawer-header.svelte";
+export { default as DrawerTitle } from "./drawer-title.svelte";
+export { default as DrawerNested } from "./drawer-nested.svelte";
+export { default as DrawerClose } from "./drawer-close.svelte";
+export { default as DrawerTrigger } from "./drawer-trigger.svelte";
 
-const Portal: typeof DrawerPrimitive.Portal = DrawerPrimitive.Portal;
-
-export {
-	Root,
-	NestedRoot,
-	Content,
-	Description,
-	Overlay,
-	Footer,
-	Header,
-	Title,
-	Trigger,
-	Portal,
-	Close,
-
-	//
-	Root as Drawer,
-	NestedRoot as DrawerNestedRoot,
-	Content as DrawerContent,
-	Description as DrawerDescription,
-	Overlay as DrawerOverlay,
-	Footer as DrawerFooter,
-	Header as DrawerHeader,
-	Title as DrawerTitle,
-	Trigger as DrawerTrigger,
-	Portal as DrawerPortal,
-	Close as DrawerClose,
-};
+// Re-export vaul-svelte primitives
+export { Drawer } from "vaul-svelte";

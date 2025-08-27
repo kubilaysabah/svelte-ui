@@ -1,7 +1,3 @@
-import Root from "./progress.svelte";
+export * from "./progress.svelte";
 
-export {
-	Root,
-	//
-	Root as Progress,
-};
+export { default as Progress } from "./progress.svelte";

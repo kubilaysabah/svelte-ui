@@ -1,42 +1,40 @@
-import { RangeCalendar as RangeCalendarPrimitive } from "bits-ui";
-import Root from "./range-calendar.svelte";
-import Cell from "./range-calendar-cell.svelte";
-import Day from "./range-calendar-day.svelte";
-import Grid from "./range-calendar-grid.svelte";
-import Header from "./range-calendar-header.svelte";
-import Months from "./range-calendar-months.svelte";
-import GridRow from "./range-calendar-grid-row.svelte";
-import Heading from "./range-calendar-heading.svelte";
-import HeadCell from "./range-calendar-head-cell.svelte";
-import NextButton from "./range-calendar-next-button.svelte";
-import PrevButton from "./range-calendar-prev-button.svelte";
-import MonthSelect from "./range-calendar-month-select.svelte";
-import YearSelect from "./range-calendar-year-select.svelte";
-import Caption from "./range-calendar-caption.svelte";
-import Nav from "./range-calendar-nav.svelte";
-import Month from "./range-calendar-month.svelte";
+export * from "./range-calendar.svelte";
+export * from "./range-calendar-cell.svelte";
+export * from "./range-calendar-day.svelte";
+export * from "./range-calendar-grid.svelte";
+export * from "./range-calendar-header.svelte";
+export * from "./range-calendar-months.svelte";
+export * from "./range-calendar-grid-row.svelte";
+export * from "./range-calendar-grid-head.svelte";
+export * from "./range-calendar-grid-body.svelte";
+export * from "./range-calendar-heading.svelte";
+export * from "./range-calendar-head-cell.svelte";
+export * from "./range-calendar-next-button.svelte";
+export * from "./range-calendar-prev-button.svelte";
+export * from "./range-calendar-month-select.svelte";
+export * from "./range-calendar-year-select.svelte";
+export * from "./range-calendar-caption.svelte";
+export * from "./range-calendar-nav.svelte";
+export * from "./range-calendar-month.svelte";
 
-const GridHead = RangeCalendarPrimitive.GridHead;
-const GridBody = RangeCalendarPrimitive.GridBody;
+export { default as RangeCalendarRoot } from "./range-calendar.svelte";
+export { default as RangeCalendarCell } from "./range-calendar-cell.svelte";
+export { default as RangeCalendarDay } from "./range-calendar-day.svelte";
+export { default as RangeCalendarGrid } from "./range-calendar-grid.svelte";
+export { default as RangeCalendarHeader } from "./range-calendar-header.svelte";
+export { default as RangeCalendarMonths } from "./range-calendar-months.svelte";
+export { default as RangeCalendarGridRow } from "./range-calendar-grid-row.svelte";
+export { default as RangeCalendarGridBody } from "./range-calendar-grid-body.svelte";
+export { default as RangeCalendarHeading } from "./range-calendar-heading.svelte";
+export { default as RangeCalendarHeadCell } from "./range-calendar-head-cell.svelte";
+export { default as RangeCalendarNextButton } from "./range-calendar-next-button.svelte";
+export { default as RangeCalendarPrevButton } from "./range-calendar-prev-button.svelte";
+export { default as RangeCalendarMonthSelect } from "./range-calendar-month-select.svelte";
+export { default as RangeCalendarYearSelect } from "./range-calendar-year-select.svelte";
+export { default as RangeCalendarCaption } from "./range-calendar-caption.svelte";
+export { default as RangeCalendarNav } from "./range-calendar-nav.svelte";
+export { default as RangeCalendarMonth } from "./range-calendar-month.svelte";
+export { default as RangeCalendarGridHead } from "./range-calendar-grid-head.svelte";
 
-export {
-	Day,
-	Cell,
-	Grid,
-	Header,
-	Months,
-	GridRow,
-	Heading,
-	GridBody,
-	GridHead,
-	HeadCell,
-	NextButton,
-	PrevButton,
-	MonthSelect,
-	YearSelect,
-	Caption,
-	Nav,
-	Month,
-	//
-	Root as RangeCalendar,
-};
+// Re-export bits-ui primitives
+export { RangeCalendar } from "bits-ui";

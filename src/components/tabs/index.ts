@@ -1,16 +1,11 @@
-import Root from "./tabs.svelte";
-import Content from "./tabs-content.svelte";
-import List from "./tabs-list.svelte";
-import Trigger from "./tabs-trigger.svelte";
+export * from "./tabs.svelte";
+export * from "./tabs-content.svelte";
+export * from "./tabs-list.svelte";
+export * from "./tabs-trigger.svelte";
 
-export {
-	Root,
-	Content,
-	List,
-	Trigger,
-	//
-	Root as Tabs,
-	Content as TabsContent,
-	List as TabsList,
-	Trigger as TabsTrigger,
-};
+export { default as TabsContent } from "./tabs-content.svelte";
+export { default as TabsList } from "./tabs-list.svelte";
+export { default as TabsTrigger } from "./tabs-trigger.svelte";
+
+// Re-export bits-ui primitives
+export { Tabs } from "bits-ui";

@@ -1,16 +1,9 @@
-import Root from "./accordion.svelte";
-import Content from "./accordion-content.svelte";
-import Item from "./accordion-item.svelte";
-import Trigger from "./accordion-trigger.svelte";
+export * from "./accordion.svelte";
+export * from "./accordion-content.svelte";
+export * from "./accordion-item.svelte";
+export * from "./accordion-trigger.svelte";
 
-export {
-	Root,
-	Content,
-	Item,
-	Trigger,
-	//
-	Root as Accordion,
-	Content as AccordionContent,
-	Item as AccordionItem,
-	Trigger as AccordionTrigger,
-};
+export { default as Accordion } from "./accordion.svelte";
+export { default as AccordionContent } from "./accordion-content.svelte";
+export { default as AccordionItem } from "./accordion-item.svelte";
+export { default as AccordionTrigger } from "./accordion-trigger.svelte";

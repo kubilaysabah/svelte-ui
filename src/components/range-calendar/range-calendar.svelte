@@ -1,41 +1,72 @@
 <script lang="ts">
-	import { RangeCalendar as RangeCalendarPrimitive } from "bits-ui";
-	import * as RangeCalendar from "./index.js";
-	import { cn, type WithoutChildrenOrChild } from "@/lib/utils";
-	import type { ButtonVariant } from "@/components/button/index.js";
-	import type { Snippet } from "svelte";
-	import { isEqualMonth, type DateValue } from "@internationalized/date";
+	import { RangeCalendar as RangeCalendarPrimitive } from 'bits-ui';
+	import {
+		RangeCalendarMonths as Months,
+		RangeCalendarNav as Nav,
+		RangeCalendarPrevButton as PrevButton,
+		RangeCalendarNextButton as NextButton,
+		RangeCalendarMonth as Month,
+		RangeCalendarHeader as Header,
+		RangeCalendarCaption as Caption,
+		RangeCalendarGrid as Grid,
+		RangeCalendarGridRow as GridRow,
+		RangeCalendarHeadCell as HeadCell,
+		RangeCalendarGridBody as GridBody,
+		RangeCalendarCell as Cell,
+		RangeCalendarDay as Day,
+		RangeCalendarGridHead as GridHead
+	} from './index.js';
+	const RangeCalendar = {
+		Months,
+		Nav,
+		PrevButton,
+		NextButton,
+		Month,
+		Header,
+		Caption,
+		Grid,
+		GridHead,
+		GridRow,
+		HeadCell,
+		GridBody,
+		Cell,
+		Day
+	};
+	import { cn, type WithoutChildrenOrChild } from '@/lib/utils';
+	import type { ButtonVariant } from '@/components/button/index.js';
+	import type { Snippet } from 'svelte';
+	import { isEqualMonth, type DateValue } from '@internationalized/date';
 
 	let {
 		ref = $bindable(null),
 		value = $bindable(),
 		placeholder = $bindable(),
-		weekdayFormat = "short",
+		weekdayFormat = 'short',
 		class: className,
-		buttonVariant = "ghost",
-		captionLayout = "label",
-		locale = "en-US",
+		buttonVariant = 'ghost',
+		captionLayout = 'label',
+		locale = 'en-US',
 		months: monthsProp,
 		years,
 		monthFormat: monthFormatProp,
-		yearFormat = "numeric",
+		yearFormat = 'numeric',
 		day,
 		disableDaysOutsideMonth = false,
 		...restProps
 	}: WithoutChildrenOrChild<RangeCalendarPrimitive.RootProps> & {
 		buttonVariant?: ButtonVariant;
-		captionLayout?: "dropdown" | "dropdown-months" | "dropdown-years" | "label";
-		months?: RangeCalendarPrimitive.MonthSelectProps["months"];
-		years?: RangeCalendarPrimitive.YearSelectProps["years"];
-		monthFormat?: RangeCalendarPrimitive.MonthSelectProps["monthFormat"];
-		yearFormat?: RangeCalendarPrimitive.YearSelectProps["yearFormat"];
+		captionLayout?: 'dropdown' | 'dropdown-months' | 'dropdown-years' | 'label';
+		months?: RangeCalendarPrimitive.MonthSelectProps['months'];
+		years?: RangeCalendarPrimitive.YearSelectProps['years'];
+		monthFormat?: RangeCalendarPrimitive.MonthSelectProps['monthFormat'];
+		yearFormat?: RangeCalendarPrimitive.YearSelectProps['yearFormat'];
 		day?: Snippet<[{ day: DateValue; outsideMonth: boolean }]>;
 	} = $props();
 
 	const monthFormat = $derived.by(() => {
 		if (monthFormatProp) return monthFormatProp;
-		if (captionLayout.startsWith("dropdown")) return "short";
-		return "long";
+		if (captionLayout.startsWith('dropdown')) return 'short';
+		return 'long';
 	});
 </script>
 
@@ -46,7 +77,7 @@
 	{weekdayFormat}
 	{disableDaysOutsideMonth}
 	class={cn(
-		"bg-background group/calendar p-3 [--cell-size:--spacing(8)] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent",
+		'group/calendar bg-background p-3 [--cell-size:--spacing(8)] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent',
 		className
 	)}
 	{locale}
@@ -94,7 +125,7 @@
 											{#if day}
 												{@render day({
 													day: date,
-													outsideMonth: !isEqualMonth(date, month.value),
+													outsideMonth: !isEqualMonth(date, month.value)
 												})}
 											{:else}
 												<RangeCalendar.Day />

@@ -1,13 +1,8 @@
-import { Pane } from "paneforge";
-import Handle from "./resizable-handle.svelte";
-import PaneGroup from "./resizable-pane-group.svelte";
+export * from "./resizable-handle.svelte";
+export * from "./resizable-pane-group.svelte";
 
-export {
-	PaneGroup,
-	Pane,
-	Handle,
-	//
-	PaneGroup as ResizablePaneGroup,
-	Pane as ResizablePane,
-	Handle as ResizableHandle,
-};
+export { default as ResizableHandle } from "./resizable-handle.svelte";
+export { default as ResizablePaneGroup } from "./resizable-pane-group.svelte";
+
+// Re-export paneforge primitives
+export { Pane as ResizablePane } from "paneforge";

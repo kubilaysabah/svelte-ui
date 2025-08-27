@@ -1,14 +1,8 @@
-import { LinkPreview as HoverCardPrimitive } from "bits-ui";
-import Content from "./hover-card-content.svelte";
-import Trigger from "./hover-card-trigger.svelte";
+export * from "./hover-card-content.svelte";
+export * from "./hover-card-trigger.svelte";
 
-const Root = HoverCardPrimitive.Root;
+export { default as HoverCardContent } from "./hover-card-content.svelte";
+export { default as HoverCardTrigger } from "./hover-card-trigger.svelte";
 
-export {
-	Root,
-	Content,
-	Trigger,
-	Root as HoverCard,
-	Content as HoverCardContent,
-	Trigger as HoverCardTrigger,
-};
+// Re-export bits-ui primitives
+export { LinkPreview as HoverCard } from "bits-ui";

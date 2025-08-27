@@ -3,7 +3,7 @@
 	import type { WithoutChildren } from "bits-ui";
 	import { getEmblaContext } from "./context.js";
 	import { cn } from "@/lib/utils";
-	import { Button, type Props } from "@/components/button/index.js";
+	import { Button, type ButtonProps } from "@/components";
 
 	let {
 		ref = $bindable(null),
@@ -11,7 +11,7 @@
 		variant = "outline",
 		size = "icon",
 		...restProps
-	}: WithoutChildren<Props> = $props();
+	}: WithoutChildren<ButtonProps> = $props();
 
 	const emblaCtx = getEmblaContext("<Carousel.Next/>");
 </script>

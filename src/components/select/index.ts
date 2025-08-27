@@ -1,37 +1,22 @@
-import { Select as SelectPrimitive } from "bits-ui";
+export * from "./select-group.svelte";
+export * from "./select-label.svelte";
+export * from "./select-item.svelte";
+export * from "./select-content.svelte";
+export * from "./select-trigger.svelte";
+export * from "./select-separator.svelte";
+export * from "./select-scroll-down-button.svelte";
+export * from "./select-scroll-up-button.svelte";
+export * from "./select-group-heading.svelte";
 
-import Group from "./select-group.svelte";
-import Label from "./select-label.svelte";
-import Item from "./select-item.svelte";
-import Content from "./select-content.svelte";
-import Trigger from "./select-trigger.svelte";
-import Separator from "./select-separator.svelte";
-import ScrollDownButton from "./select-scroll-down-button.svelte";
-import ScrollUpButton from "./select-scroll-up-button.svelte";
-import GroupHeading from "./select-group-heading.svelte";
+export { default as SelectGroup } from "./select-group.svelte";
+export { default as SelectLabel } from "./select-label.svelte";
+export { default as SelectItem } from "./select-item.svelte";
+export { default as SelectContent } from "./select-content.svelte";
+export { default as SelectTrigger } from "./select-trigger.svelte";
+export { default as SelectSeparator } from "./select-separator.svelte";
+export { default as SelectScrollDownButton } from "./select-scroll-down-button.svelte";
+export { default as SelectScrollUpButton } from "./select-scroll-up-button.svelte";
+export { default as SelectGroupHeading } from "./select-group-heading.svelte";
 
-const Root = SelectPrimitive.Root;
-
-export {
-	Root,
-	Group,
-	Label,
-	Item,
-	Content,
-	Trigger,
-	Separator,
-	ScrollDownButton,
-	ScrollUpButton,
-	GroupHeading,
-	//
-	Root as Select,
-	Group as SelectGroup,
-	Label as SelectLabel,
-	Item as SelectItem,
-	Content as SelectContent,
-	Trigger as SelectTrigger,
-	Separator as SelectSeparator,
-	ScrollDownButton as SelectScrollDownButton,
-	ScrollUpButton as SelectScrollUpButton,
-	GroupHeading as SelectGroupHeading,
-};
+// Re-export bits-ui primitives
+export { Select } from "bits-ui";

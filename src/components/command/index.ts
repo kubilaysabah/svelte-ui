@@ -1,40 +1,24 @@
-import { Command as CommandPrimitive } from "bits-ui";
+export * from "./command.svelte";
+export * from "./command-dialog.svelte";
+export * from "./command-empty.svelte";
+export * from "./command-group.svelte";
+export * from "./command-item.svelte";
+export * from "./command-input.svelte";
+export * from "./command-list.svelte";
+export * from "./command-separator.svelte";
+export * from "./command-shortcut.svelte";
+export * from "./command-link-item.svelte";
 
-import Root from "./command.svelte";
-import Dialog from "./command-dialog.svelte";
-import Empty from "./command-empty.svelte";
-import Group from "./command-group.svelte";
-import Item from "./command-item.svelte";
-import Input from "./command-input.svelte";
-import List from "./command-list.svelte";
-import Separator from "./command-separator.svelte";
-import Shortcut from "./command-shortcut.svelte";
-import LinkItem from "./command-link-item.svelte";
+export { default as Command } from "./command.svelte";
+export { default as CommandDialog } from "./command-dialog.svelte";
+export { default as CommandEmpty } from "./command-empty.svelte";
+export { default as CommandGroup } from "./command-group.svelte";
+export { default as CommandItem } from "./command-item.svelte";
+export { default as CommandInput } from "./command-input.svelte";
+export { default as CommandList } from "./command-list.svelte";
+export { default as CommandSeparator } from "./command-separator.svelte";
+export { default as CommandShortcut } from "./command-shortcut.svelte";
+export { default as CommandLinkItem } from "./command-link-item.svelte";
 
-const Loading = CommandPrimitive.Loading;
-
-export {
-	Root,
-	Dialog,
-	Empty,
-	Group,
-	Item,
-	LinkItem,
-	Input,
-	List,
-	Separator,
-	Shortcut,
-	Loading,
-	//
-	Root as Command,
-	Dialog as CommandDialog,
-	Empty as CommandEmpty,
-	Group as CommandGroup,
-	Item as CommandItem,
-	LinkItem as CommandLinkItem,
-	Input as CommandInput,
-	List as CommandList,
-	Separator as CommandSeparator,
-	Shortcut as CommandShortcut,
-	Loading as CommandLoading,
-};
+// Re-export bits-ui primitives
+export { Command as CommandLoading } from "bits-ui";

@@ -1,28 +1,17 @@
-import Root from "./navigation-menu.svelte";
-import Content from "./navigation-menu-content.svelte";
-import Indicator from "./navigation-menu-indicator.svelte";
-import Item from "./navigation-menu-item.svelte";
-import Link from "./navigation-menu-link.svelte";
-import List from "./navigation-menu-list.svelte";
-import Trigger from "./navigation-menu-trigger.svelte";
-import Viewport from "./navigation-menu-viewport.svelte";
+export * from "./navigation-menu.svelte";
+export * from "./navigation-menu-content.svelte";
+export * from "./navigation-menu-indicator.svelte";
+export * from "./navigation-menu-item.svelte";
+export * from "./navigation-menu-link.svelte";
+export * from "./navigation-menu-list.svelte";
+export * from "./navigation-menu-trigger.svelte";
+export * from "./navigation-menu-viewport.svelte";
 
-export {
-	Root,
-	Content,
-	Indicator,
-	Item,
-	Link,
-	List,
-	Trigger,
-	Viewport,
-	//
-	Root as NavigationMenuRoot,
-	Content as NavigationMenuContent,
-	Indicator as NavigationMenuIndicator,
-	Item as NavigationMenuItem,
-	Link as NavigationMenuLink,
-	List as NavigationMenuList,
-	Trigger as NavigationMenuTrigger,
-	Viewport as NavigationMenuViewport,
-};
+export { default as NavigationMenu } from "./navigation-menu.svelte";
+export { default as NavigationMenuContent } from "./navigation-menu-content.svelte";
+export { default as NavigationMenuIndicator } from "./navigation-menu-indicator.svelte";
+export { default as NavigationMenuItem } from "./navigation-menu-item.svelte";
+export { default as NavigationMenuLink } from "./navigation-menu-link.svelte";
+export { default as NavigationMenuList } from "./navigation-menu-list.svelte";
+export { default as NavigationMenuTrigger } from "./navigation-menu-trigger.svelte";
+export { default as NavigationMenuViewport } from "./navigation-menu-viewport.svelte";

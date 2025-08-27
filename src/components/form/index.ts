@@ -1,33 +1,28 @@
-import * as FormPrimitive from "formsnap";
-import Description from "./form-description.svelte";
-import Label from "./form-label.svelte";
-import FieldErrors from "./form-field-errors.svelte";
-import Field from "./form-field.svelte";
-import Fieldset from "./form-fieldset.svelte";
-import Legend from "./form-legend.svelte";
-import ElementField from "./form-element-field.svelte";
-import Button from "./form-button.svelte";
+export * from "./form-description.svelte";
+export * from "./form-label.svelte";
+export * from "./form-field-errors.svelte";
+export * from "./form-field.svelte";
+export * from "./form-fieldset.svelte";
+export * from "./form-legend.svelte";
+export * from "./form-element-field.svelte";
+export * from "./form-button.svelte";
 
-const Control = FormPrimitive.Control;
+export { default as FormDescription } from "./form-description.svelte";
+export { default as FormLabel } from "./form-label.svelte";
+export { default as FormFieldErrors } from "./form-field-errors.svelte";
+export { default as FormField } from "./form-field.svelte";
+export { default as FormFieldset } from "./form-fieldset.svelte";
+export { default as FormLegend } from "./form-legend.svelte";
+export { default as FormElementField } from "./form-element-field.svelte";
+export { default as FormButton } from "./form-button.svelte";
 
+// Re-export formsnap primitives
 export {
-	Field,
 	Control,
-	Label,
-	Button,
-	FieldErrors,
 	Description,
-	Fieldset,
-	Legend,
 	ElementField,
-	//
-	Field as FormField,
-	Control as FormControl,
-	Description as FormDescription,
-	Label as FormLabel,
-	FieldErrors as FormFieldErrors,
-	Fieldset as FormFieldset,
-	Legend as FormLegend,
-	ElementField as FormElementField,
-	Button as FormButton,
-};
+	Field,
+	FieldErrors,
+	Fieldset,
+	Legend
+} from "formsnap";
