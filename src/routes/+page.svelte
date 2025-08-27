@@ -471,6 +471,262 @@
 				</div>
 			</div>
 		</section>
+
+		<!-- Calendar Section -->
+		<section id="calendar" class="mb-16">
+			<h2 class="text-3xl font-bold mb-6">Calendar</h2>
+			<p class="text-muted-foreground mb-6">
+				Tarih seçimi için kullanılan takvim bileşeni.
+			</p>
+			
+			<div class="space-y-8">
+				<div>
+					<h3 class="text-xl font-semibold mb-4">Temel Kullanım</h3>
+					<div class="p-6 border rounded-lg bg-card flex justify-center">
+						<Calendar bind:value={calendarValue} type="single" />
+					</div>
+				</div>
+
+				<div class="bg-muted p-4 rounded-lg">
+					<h4 class="font-semibold mb-2">Kullanım</h4>
+					<pre class="text-sm"><code>{`<Calendar bind:value={calendarValue} />`}</code></pre>
+				</div>
+			</div>
+		</section>
+
+		<!-- Card Section -->
+		<section id="card" class="mb-16">
+			<h2 class="text-3xl font-bold mb-6">Card</h2>
+			<p class="text-muted-foreground mb-6">
+				İçerik konteynerları için kullanılan esnek bileşen.
+			</p>
+			
+			<div class="space-y-8">
+				<div>
+					<h3 class="text-xl font-semibold mb-4">Temel Kullanım</h3>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 border rounded-lg bg-card">
+						<Card class="w-full">
+							<CardHeader>
+								<CardTitle>Kart Başlığı</CardTitle>
+								<CardDescription>Kart açıklaması burada yer alır.</CardDescription>
+							</CardHeader>
+							<CardContent>
+								<p>Bu kartın ana içeriğidir. Burada detaylı bilgiler yer alabilir.</p>
+							</CardContent>
+							<CardFooter>
+								<Button>Aksiyon</Button>
+							</CardFooter>
+						</Card>
+
+						<Card class="w-full">
+							<CardHeader>
+								<CardTitle>İkinci Kart</CardTitle>
+								<CardDescription>Farklı içerikli başka bir kart örneği.</CardDescription>
+							</CardHeader>
+							<CardContent>
+								<div class="space-y-2">
+									<div class="flex justify-between">
+										<span>Özellik 1</span>
+										<Badge>Aktif</Badge>
+									</div>
+									<div class="flex justify-between">
+										<span>Özellik 2</span>
+										<Badge variant="secondary">Beklemede</Badge>
+									</div>
+								</div>
+							</CardContent>
+						</Card>
+					</div>
+				</div>
+
+				<div class="bg-muted p-4 rounded-lg">
+					<h4 class="font-semibold mb-2">Kullanım</h4>
+					<pre class="text-sm"><code>{`<Card>
+  <CardHeader>
+    <CardTitle>Başlık</CardTitle>
+    <CardDescription>Açıklama</CardDescription>
+  </CardHeader>
+  <CardContent>
+    İçerik
+  </CardContent>
+  <CardFooter>
+    <Button>Aksiyon</Button>
+  </CardFooter>
+</Card>`}</code></pre>
+				</div>
+			</div>
+		</section>
+
+		<!-- Collapsible Section -->
+		<section id="collapsible" class="mb-16">
+			<h2 class="text-3xl font-bold mb-6">Collapsible</h2>
+			<p class="text-muted-foreground mb-6">
+				Katlanabilir içerik alanları için kullanılan bileşen.
+			</p>
+			
+			<div class="space-y-8">
+				<div>
+					<h3 class="text-xl font-semibold mb-4">Temel Kullanım</h3>
+					<div class="p-6 border rounded-lg bg-card">
+						<Collapsible class="w-full space-y-2">
+							<div class="flex items-center justify-between space-x-4 px-4">
+								<h4 class="text-sm font-semibold">@peduarte starred 3 repositories</h4>
+								<CollapsibleTrigger>
+									<Button variant="ghost" size="sm" class="w-9 p-0">
+										<ChevronDown class="h-4 w-4" />
+									</Button>
+								</CollapsibleTrigger>
+							</div>
+							<div class="rounded-md border px-4 py-3 font-mono text-sm">
+								@radix-ui/primitives
+							</div>
+							<CollapsibleContent class="space-y-2">
+								<div class="rounded-md border px-4 py-3 font-mono text-sm">
+									@radix-ui/colors
+								</div>
+								<div class="rounded-md border px-4 py-3 font-mono text-sm">
+									@stitches/react
+								</div>
+							</CollapsibleContent>
+						</Collapsible>
+					</div>
+				</div>
+
+				<div class="bg-muted p-4 rounded-lg">
+					<h4 class="font-semibold mb-2">Kullanım</h4>
+					<pre class="text-sm"><code>{`<Collapsible>
+  <CollapsibleTrigger>Aç/Kapat</CollapsibleTrigger>
+  <CollapsibleContent>
+    Gizli içerik
+  </CollapsibleContent>
+</Collapsible>`}</code></pre>
+				</div>
+			</div>
+		</section>
+
+		<!-- Hover Card Section -->
+		<section id="hover-card" class="mb-16">
+			<h2 class="text-3xl font-bold mb-6">Hover Card</h2>
+			<p class="text-muted-foreground mb-6">
+				Hover durumunda gösterilen kart bileşeni.
+			</p>
+			
+			<div class="space-y-8">
+				<div>
+					<h3 class="text-xl font-semibold mb-4">Temel Kullanım</h3>
+					<div class="p-6 border rounded-lg bg-card flex justify-center">
+						<HoverCard>
+							<HoverCardTrigger>
+								<Button variant="link">@nextjs</Button>
+							</HoverCardTrigger>
+							<HoverCardContent class="w-80">
+								<div class="flex justify-between space-x-4">
+									<Avatar>
+										<AvatarImage src="https://github.com/vercel.png" />
+										<AvatarFallback>VC</AvatarFallback>
+									</Avatar>
+									<div class="space-y-1">
+										<h4 class="text-sm font-semibold">@nextjs</h4>
+										<p class="text-sm">
+											The React Framework – created and maintained by @vercel.
+										</p>
+										<div class="flex items-center pt-2">
+											<CalendarIcon class="mr-2 h-4 w-4 opacity-70" />
+											<span class="text-xs text-muted-foreground">
+												Joined December 2021
+											</span>
+										</div>
+									</div>
+								</div>
+							</HoverCardContent>
+						</HoverCard>
+					</div>
+				</div>
+
+				<div class="bg-muted p-4 rounded-lg">
+					<h4 class="font-semibold mb-2">Kullanım</h4>
+					<pre class="text-sm"><code>{`<HoverCard>
+  <HoverCardTrigger>Hover me</HoverCardTrigger>
+  <HoverCardContent>
+    Hover içeriği
+  </HoverCardContent>
+</HoverCard>`}</code></pre>
+				</div>
+			</div>
+		</section>
+
+		<!-- Popover Section -->
+		<section id="popover" class="mb-16">
+			<h2 class="text-3xl font-bold mb-6">Popover</h2>
+			<p class="text-muted-foreground mb-6">
+				Tıklanabilir açılır panel bileşeni.
+			</p>
+			
+			<div class="space-y-8">
+				<div>
+					<h3 class="text-xl font-semibold mb-4">Temel Kullanım</h3>
+					<div class="p-6 border rounded-lg bg-card flex justify-center">
+						<Popover>
+							<PopoverTrigger>
+								<Button variant="outline">Popover Aç</Button>
+							</PopoverTrigger>
+							<PopoverContent class="w-80">
+								<div class="grid gap-4">
+									<div class="space-y-2">
+										<h4 class="font-medium leading-none">Boyutlar</h4>
+										<p class="text-sm text-muted-foreground">
+											Genişlik ve yükseklik değerlerini ayarlayın.
+										</p>
+									</div>
+									<div class="grid gap-2">
+										<div class="grid grid-cols-3 items-center gap-4">
+											<Label for="width">Genişlik</Label>
+											<Input id="width" value="100%" class="col-span-2 h-8" />
+										</div>
+										<div class="grid grid-cols-3 items-center gap-4">
+											<Label for="height">Yükseklik</Label>
+											<Input id="height" value="25px" class="col-span-2 h-8" />
+										</div>
+									</div>
+								</div>
+							</PopoverContent>
+						</Popover>
+					</div>
+				</div>
+
+				<div class="bg-muted p-4 rounded-lg">
+					<h4 class="font-semibold mb-2">Kullanım</h4>
+					<pre class="text-sm"><code>{`<Popover>
+  <PopoverTrigger>Aç</PopoverTrigger>
+  <PopoverContent>
+    Popover içeriği
+  </PopoverContent>
+</Popover>`}</code></pre>
+				</div>
+			</div>
+		</section>
+
+		<!-- Range Calendar Section -->
+		<section id="range-calendar" class="mb-16">
+			<h2 class="text-3xl font-bold mb-6">Range Calendar</h2>
+			<p class="text-muted-foreground mb-6">
+				Tarih aralığı seçimi için kullanılan takvim bileşeni.
+			</p>
+			
+			<div class="space-y-8">
+				<div>
+					<h3 class="text-xl font-semibold mb-4">Temel Kullanım</h3>
+					<div class="p-6 border rounded-lg bg-card flex justify-center">
+						<RangeCalendar bind:value={rangeValue} />
+					</div>
+				</div>
+
+				<div class="bg-muted p-4 rounded-lg">
+					<h4 class="font-semibold mb-2">Kullanım</h4>
+					<pre class="text-sm"><code>{`<RangeCalendar bind:value={rangeValue} />`}</code></pre>
+				</div>
+			</div>
+		</section>
 	</div>
 </main>
 
