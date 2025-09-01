@@ -11,6 +11,6 @@
 
 <RangeCalendarPrimitive.Heading
 	bind:ref
-	class={cn("px-(--cell-size) text-sm font-medium", className)}
+	class={cn("svelte-ui","px-(--cell-size) text-sm font-medium", className)}
 	{...restProps}
 />

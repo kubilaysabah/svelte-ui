@@ -14,10 +14,10 @@
 	{cell}
 	bind:ref
 	data-slot="input-otp-slot"
-	class={cn(
-		"border-input aria-invalid:border-destructive dark:bg-input/30 relative flex size-10 items-center justify-center border-y border-r text-sm outline-none transition-all first:rounded-l-md first:border-l last:rounded-r-md",
+	class={cn("svelte-ui",
+		"border-sui-input aria-invalid:border-sui-destructive dark:bg-sui-input/30 relative flex size-10 items-center justify-center border-y border-r text-sm outline-none transition-all first:rounded-l-md first:border-l last:rounded-r-md",
 		cell.isActive &&
-			"border-ring ring-ring/50 aria-invalid:border-destructive dark:aria-invalid:ring-destructive/40 aria-invalid:ring-destructive/20 ring-offset-background z-10 ring-[3px]",
+			"border-sui-ring ring-sui-ring/50 aria-invalid:border-sui-destructive dark:aria-invalid:ring-sui-destructive/40 aria-invalid:ring-sui-destructive/20 ring-offset-sui-background z-10 ring-[3px]",
 		className
 	)}
 	{...restProps}

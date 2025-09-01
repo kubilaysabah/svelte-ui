@@ -15,8 +15,8 @@
 	<SearchIcon class="size-4 shrink-0 opacity-50" />
 	<CommandPrimitive.Input
 		data-slot="command-input"
-		class={cn(
-			"placeholder:text-muted-foreground outline-hidden flex h-10 w-full rounded-md bg-transparent py-3 text-sm disabled:cursor-not-allowed disabled:opacity-50",
+		class={cn("svelte-ui",
+			"placeholder:text-sui-muted-foreground outline-hidden flex h-10 w-full rounded-md bg-transparent py-3 text-sm disabled:cursor-not-allowed disabled:opacity-50",
 			className
 		)}
 		bind:ref

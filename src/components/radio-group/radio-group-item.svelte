@@ -13,8 +13,8 @@
 <RadioGroupPrimitive.Item
 	bind:ref
 	data-slot="radio-group-item"
-	class={cn(
-		"border-input text-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 shadow-xs aspect-square size-4 shrink-0 rounded-full border outline-none transition-[color,box-shadow] focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+	class={cn("svelte-ui",
+		"border-sui-input text-sui-primary focus-visible:border-sui-ring focus-visible:ring-sui-ring/50 aria-invalid:ring-sui-destructive/20 dark:aria-invalid:ring-sui-destructive/40 aria-invalid:border-sui-destructive dark:bg-sui-input/30 shadow-xs aspect-square size-4 shrink-0 rounded-full border outline-none transition-[color,box-shadow] focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
 		className
 	)}
 	{...restProps}

@@ -84,7 +84,7 @@
 <div
 	bind:this={ref}
 	data-slot="carousel"
-	class={cn("relative", className)}
+	class={cn("svelte-ui","relative", className)}
 	role="region"
 	aria-roledescription="carousel"
 	{...restProps}

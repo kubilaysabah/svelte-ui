@@ -20,7 +20,7 @@
 <PaginationPrimitive.PrevButton
 	bind:ref
 	aria-label="Go to previous page"
-	class={cn(
+	class={cn("svelte-ui",
 		buttonVariants({
 			size: "default",
 			variant: "ghost",

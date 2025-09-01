@@ -11,6 +11,6 @@
 
 <FormPrimitive.Legend
 	bind:ref
-	class={cn("data-[fs-error]:text-destructive text-sm font-medium leading-none", className)}
+	class={cn("svelte-ui","data-[fs-error]:text-sui-destructive text-sm font-medium leading-none", className)}
 	{...restProps}
 />

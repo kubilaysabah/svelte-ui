@@ -5,11 +5,13 @@ Modern, accessible, and customizable UI component library for Svelte 5 applicati
 ## 🚀 Features
 
 - **Svelte 5 Ready**: Built with the latest Svelte 5 runes and modern patterns
-- **TypeScript First**: Complete type safety with comprehensive TypeScript definitions
+- **TypeScript First**: Complete type safety with comprehensive TypeScript definitions and proper component constructors
 - **Accessible**: WCAG compliant components with proper ARIA attributes and keyboard navigation
 - **Customizable**: Built with Class Variance Authority (CVA) for flexible styling
 - **Modern Styling**: Powered by Tailwind CSS with dark mode support
 - **Tree Shakeable**: Import only what you need for optimal bundle size
+- **Component Isolation**: Scoped CSS prevents style conflicts with your application
+- **Robust Architecture**: Proper component wrapping for bits-ui primitives with full TypeScript support
 - **Developer Experience**: Comprehensive documentation and Storybook stories
 
 ## 📦 Installation
@@ -35,27 +37,93 @@ npm install svelte@^5.0.0
 
 ### Setup Tailwind CSS
 
-This library requires Tailwind CSS. If you haven't set it up yet:
+This library requires **TailwindCSS v4** and is designed to work without configuration files. If you haven't set it up yet:
 
 ```bash
-npm install -D tailwindcss @tailwindcss/vite
+npm install -D tailwindcss@next @tailwindcss/vite
 ```
 
-Add the library's styles to your `tailwind.config.js`:
+Add the TailwindCSS Vite plugin to your `vite.config.js`:
 
 ```js
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    './src/**/*.{html,js,svelte,ts}',
-    './node_modules/@kubilaysabah/svelte-ui/**/*.{js,svelte,ts}'
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
+import { sveltekit } from '@sveltejs/kit/vite';
+import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  plugins: [tailwindcss(), sveltekit()]
+});
+```
+
+### Import Component Styles
+
+Import the component styles in your main CSS file (e.g., `src/app.css`):
+
+```css
+@import "tailwindcss";
+@import "@kubilaysabah/svelte-ui/dist/app.css";
+```
+
+### 🎨 Style Architecture
+
+The library uses **component-scoped CSS** to prevent conflicts with your application:
+
+- **Scoped Variables**: All CSS variables use the `--sui-` prefix
+- **Class Isolation**: Components automatically include the `.svelte-ui` class
+- **No Global Pollution**: Only affects elements with the `.svelte-ui` class
+- **TailwindCSS v4 Native**: Uses `@theme` directive for seamless integration
+
+### Integration with Existing TailwindCSS
+
+Perfect compatibility with your existing TailwindCSS setup:
+
+```css
+/* Your app.css */
+@import "tailwindcss";
+
+/* Your existing custom styles */
+.my-app-button {
+  @apply bg-blue-500 text-white; /* Your styles won't conflict */
+}
+
+/* Import component styles last */
+@import "@kubilaysabah/svelte-ui/dist/app.css";
+```
+
+### Customizing the Theme
+
+Override CSS variables to customize component appearance:
+
+```css
+:root {
+  /* Customize light theme */
+  --sui-primary: oklch(0.3 0.2 250); /* Custom blue */
+  --sui-destructive: oklch(0.6 0.25 15); /* Custom red */
+  --sui-border: oklch(0.9 0 0); /* Custom border */
+  --sui-radius: 0.5rem; /* Custom border radius */
+}
+
+.dark {
+  /* Customize dark theme */
+  --sui-primary: oklch(0.7 0.2 250);
+  --sui-destructive: oklch(0.7 0.2 15);
+  --sui-border: oklch(0.2 0 0);
 }
 ```
+
+### Available CSS Variables
+
+| Variable | Purpose | Default (Light) | Default (Dark) |
+|----------|---------|----------------|----------------|
+| `--sui-primary` | Primary brand color | `oklch(0.205 0 0)` | `oklch(0.922 0 0)` |
+| `--sui-secondary` | Secondary background | `oklch(0.97 0 0)` | `oklch(0.269 0 0)` |
+| `--sui-destructive` | Error/danger color | `oklch(0.577 0.245 27.325)` | `oklch(0.704 0.191 22.216)` |
+| `--sui-background` | Main background | `oklch(1 0 0)` | `oklch(0.145 0 0)` |
+| `--sui-foreground` | Main text color | `oklch(0.145 0 0)` | `oklch(0.985 0 0)` |
+| `--sui-border` | Border color | `oklch(0.922 0 0)` | `oklch(1 0 0 / 10%)` |
+| `--sui-input` | Input background | `oklch(0.922 0 0)` | `oklch(1 0 0 / 15%)` |
+| `--sui-ring` | Focus ring color | `oklch(0.708 0 0)` | `oklch(0.556 0 0)` |
+| `--sui-radius` | Base border radius | `0.625rem` | `0.625rem` |
 
 ## 🎯 Quick Start
 
@@ -398,58 +466,84 @@ Page navigation component.
 ### Overlay Components
 
 #### Dialog
-Modal dialog component.
+Modal dialog component with proper TypeScript support.
 
 ```svelte
 <script>
-  import { Dialog, Button } from '@kubilaysabah/svelte-ui';
+  import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, Button } from '@kubilaysabah/svelte-ui';
   
   let open = $state(false);
 </script>
 
-<Dialog.Root bind:open>
-  <Dialog.Trigger asChild let:builder>
+<Dialog bind:open>
+  <DialogTrigger asChild let:builder>
     <Button builders={[builder]}>Open Dialog</Button>
-  </Dialog.Trigger>
+  </DialogTrigger>
   
-  <Dialog.Content>
-    <Dialog.Header>
-      <Dialog.Title>Dialog Title</Dialog.Title>
-      <Dialog.Description>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Dialog Title</DialogTitle>
+      <DialogDescription>
         This is a dialog description.
-      </Dialog.Description>
-    </Dialog.Header>
+      </DialogDescription>
+    </DialogHeader>
     
-    <Dialog.Footer>
+    <DialogFooter>
       <Button variant="outline" onclick={() => open = false}>Cancel</Button>
       <Button onclick={() => open = false}>Save</Button>
-    </Dialog.Footer>
-  </Dialog.Content>
-</Dialog.Root>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
 ```
 
 #### Popover
-Floating content panel.
+Floating content panel with improved TypeScript integration.
 
 ```svelte
 <script>
-  import { Popover, Button } from '@kubilaysabah/svelte-ui';
+  import { Popover, PopoverTrigger, PopoverContent, Button } from '@kubilaysabah/svelte-ui';
 </script>
 
-<Popover.Root>
-  <Popover.Trigger asChild let:builder>
+<Popover>
+  <PopoverTrigger asChild let:builder>
     <Button builders={[builder]} variant="outline">Open Popover</Button>
-  </Popover.Trigger>
+  </PopoverTrigger>
   
-  <Popover.Content>
+  <PopoverContent>
     <div class="grid gap-4">
       <h4 class="font-medium leading-none">Dimensions</h4>
       <p class="text-sm text-muted-foreground">
         Set the dimensions for the layer.
       </p>
     </div>
-  </Popover.Content>
-</Popover.Root>
+  </PopoverContent>
+</Popover>
+```
+
+#### HoverCard
+Hover-triggered content panel.
+
+```svelte
+<script>
+  import { HoverCard, HoverCardTrigger, HoverCardContent, Button } from '@kubilaysabah/svelte-ui';
+</script>
+
+<HoverCard>
+  <HoverCardTrigger asChild let:builder>
+    <Button builders={[builder]} variant="link">@kubilaysabah</Button>
+  </HoverCardTrigger>
+  
+  <HoverCardContent>
+    <div class="flex justify-between space-x-4">
+      <div class="space-y-1">
+        <h4 class="text-sm font-semibold">@kubilaysabah</h4>
+        <p class="text-sm">
+          The React Framework – created and maintained by @vercel.
+        </p>
+      </div>
+    </div>
+  </HoverCardContent>
+</HoverCard>
 ```
 
 #### Tooltip

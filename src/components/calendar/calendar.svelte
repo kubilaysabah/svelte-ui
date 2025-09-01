@@ -49,8 +49,8 @@ get along, so we shut typescript up by casting `value` to `never`.
 	bind:placeholder
 	{weekdayFormat}
 	{disableDaysOutsideMonth}
-	class={cn(
-		"bg-background group/calendar p-3 [--cell-size:--spacing(8)] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent",
+	class={cn("svelte-ui",
+		"bg-sui-background group/calendar p-3 [--cell-size:--spacing(8)] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent",
 		className
 	)}
 	{locale}

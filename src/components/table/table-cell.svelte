@@ -13,7 +13,7 @@
 <td
 	bind:this={ref}
 	data-slot="table-cell"
-	class={cn(
+	class={cn("svelte-ui",
 		"whitespace-nowrap bg-clip-padding p-2 align-middle [&:has([role=checkbox])]:pr-0",
 		className
 	)}

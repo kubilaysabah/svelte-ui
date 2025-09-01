@@ -27,7 +27,7 @@
 	aria-current={isActive ? 'page' : undefined}
 	data-slot="pagination-link"
 	data-active={isActive}
-	class={cn(
+	class={cn("svelte-ui",
 		buttonVariants({
 			variant: isActive ? 'outline' : 'ghost',
 			size

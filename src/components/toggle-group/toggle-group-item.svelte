@@ -21,7 +21,7 @@
 	data-slot="toggle-group-item"
 	data-variant={ctx.variant || variant}
 	data-size={ctx.size || size}
-	class={cn(
+	class={cn("svelte-ui",
 		toggleVariants({
 			variant: ctx.variant || variant,
 			size: ctx.size || size,

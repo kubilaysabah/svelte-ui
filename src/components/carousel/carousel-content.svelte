@@ -30,7 +30,7 @@
 >
 	<div
 		bind:this={ref}
-		class={cn(
+		class={cn("svelte-ui",
 			"flex",
 			emblaCtx.orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
 			className

@@ -20,7 +20,7 @@
 <PaginationPrimitive.NextButton
 	bind:ref
 	aria-label="Go to next page"
-	class={cn(
+	class={cn("svelte-ui",
 		buttonVariants({
 			size: "default",
 			variant: "ghost",

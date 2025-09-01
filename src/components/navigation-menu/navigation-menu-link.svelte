@@ -12,8 +12,8 @@
 <NavigationMenuPrimitive.Link
 	bind:ref
 	data-slot="navigation-menu-link"
-	class={cn(
-		"data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent data-[active=true]:bg-accent/50 data-[active=true]:text-accent-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm outline-none transition-all focus-visible:outline-1 focus-visible:ring-[3px] [&_svg:not([class*='size-'])]:size-4",
+	class={cn("svelte-ui",
+		"data-[active=true]:focus:bg-sui-accent data-[active=true]:hover:bg-sui-accent data-[active=true]:bg-sui-accent/50 data-[active=true]:text-sui-accent-foreground hover:bg-sui-accent hover:text-sui-accent-foreground focus:bg-sui-accent focus:text-sui-accent-foreground focus-visible:ring-sui-ring/50 [&_svg:not([class*='text-'])]:text-sui-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm outline-none transition-all focus-visible:outline-1 focus-visible:ring-[3px] [&_svg:not([class*='size-'])]:size-4",
 		className
 	)}
 	{...restProps}

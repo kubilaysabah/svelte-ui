@@ -12,6 +12,6 @@
 <SheetPrimitive.Title
 	bind:ref
 	data-slot="sheet-title"
-	class={cn("text-foreground font-semibold", className)}
+	class={cn("svelte-ui","text-sui-foreground font-semibold", className)}
 	{...restProps}
 />

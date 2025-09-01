@@ -21,7 +21,7 @@
 	{variant}
 	{size}
 	aria-disabled={!emblaCtx.canScrollNext}
-	class={cn(
+	class={cn("svelte-ui",
 		"absolute size-8 rounded-full",
 		emblaCtx.orientation === "horizontal"
 			? "-right-12 top-1/2 -translate-y-1/2"

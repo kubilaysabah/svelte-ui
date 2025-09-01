@@ -14,8 +14,8 @@
 	bind:value
 	bind:ref
 	data-slot="command"
-	class={cn(
-		"bg-popover text-popover-foreground flex h-full w-full flex-col overflow-hidden rounded-md",
+	class={cn("svelte-ui",
+		"bg-sui-popover text-sui-popover-foreground flex h-full w-full flex-col overflow-hidden rounded-md",
 		className
 	)}
 	{...restProps}

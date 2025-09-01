@@ -76,8 +76,8 @@
 	bind:placeholder
 	{weekdayFormat}
 	{disableDaysOutsideMonth}
-	class={cn(
-		'group/calendar bg-background p-3 [--cell-size:--spacing(8)] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent',
+	class={cn("svelte-ui",
+		'group/calendar bg-sui-background p-3 [--cell-size:--spacing(8)] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent',
 		className
 	)}
 	{locale}

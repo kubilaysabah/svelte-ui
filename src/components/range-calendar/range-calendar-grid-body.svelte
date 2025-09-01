@@ -9,4 +9,4 @@
 	}: RangeCalendarPrimitive.GridBodyProps = $props();
 </script>
 
-<RangeCalendarPrimitive.GridBody bind:ref class={cn(className)} {...restProps} />
+<RangeCalendarPrimitive.GridBody bind:ref class={cn("svelte-ui",className)} {...restProps} />

@@ -14,7 +14,7 @@
 	bind:ref
 	bind:value
 	data-slot="input-otp"
-	class={cn(
+	class={cn("svelte-ui",
 		"has-disabled:opacity-50 flex items-center gap-2 [&_input]:disabled:cursor-not-allowed",
 		className
 	)}

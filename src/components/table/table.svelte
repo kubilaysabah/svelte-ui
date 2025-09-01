@@ -14,7 +14,7 @@
 	<table
 		bind:this={ref}
 		data-slot="table"
-		class={cn("w-full caption-bottom text-sm", className)}
+		class={cn("svelte-ui","w-full caption-bottom text-sm", className)}
 		{...restProps}
 	>
 		{@render children?.()}

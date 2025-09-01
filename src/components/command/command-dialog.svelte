@@ -2,7 +2,13 @@
 	import type { Command as CommandPrimitive, Dialog as DialogPrimitive } from "bits-ui";
 	import type { Snippet } from "svelte";
 	import Command from "./command.svelte";
-	import * as Dialog from "@/components/dialog/index.js";
+	import { 
+		Dialog,
+		DialogHeader,
+		DialogTitle,
+		DialogDescription,
+		DialogContent
+	} from "@/components/dialog/index.js";
 	import type { WithoutChildrenOrChild } from "@/lib/utils";
 
 	let {
@@ -23,12 +29,12 @@
 		} = $props();
 </script>
 
-<Dialog.Root bind:open {...restProps}>
-	<Dialog.Header class="sr-only">
-		<Dialog.Title>{title}</Dialog.Title>
-		<Dialog.Description>{description}</Dialog.Description>
-	</Dialog.Header>
-	<Dialog.Content class="overflow-hidden p-0" {portalProps}>
+<Dialog bind:open {...restProps}>
+	<DialogHeader class="sr-only">
+		<DialogTitle>{title}</DialogTitle>
+		<DialogDescription>{description}</DialogDescription>
+	</DialogHeader>
+	<DialogContent class="overflow-hidden p-0" {portalProps}>
 		<Command
 			class="**:data-[slot=command-input-wrapper]:h-12 [&_[data-command-group]:not([hidden])_~[data-command-group]]:pt-0 [&_[data-command-group]]:px-2 [&_[data-command-input-wrapper]_svg]:h-5 [&_[data-command-input-wrapper]_svg]:w-5 [&_[data-command-input]]:h-12 [&_[data-command-item]]:px-2 [&_[data-command-item]]:py-3 [&_[data-command-item]_svg]:h-5 [&_[data-command-item]_svg]:w-5"
 			{...restProps}
@@ -36,5 +42,5 @@
 			bind:ref
 			{children}
 		/>
-	</Dialog.Content>
-</Dialog.Root>
+	</DialogContent>
+</Dialog>

@@ -36,5 +36,5 @@ export { default as RangeCalendarNav } from "./range-calendar-nav.svelte";
 export { default as RangeCalendarMonth } from "./range-calendar-month.svelte";
 export { default as RangeCalendarGridHead } from "./range-calendar-grid-head.svelte";
 
-// Re-export bits-ui primitives
-export { RangeCalendar } from "bits-ui";
+// Export the root component as RangeCalendar
+export { default as RangeCalendar } from "./range-calendar.svelte";

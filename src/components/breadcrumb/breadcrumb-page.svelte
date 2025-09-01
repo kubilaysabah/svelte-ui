@@ -16,7 +16,7 @@
 	role="link"
 	aria-disabled="true"
 	aria-current="page"
-	class={cn("text-foreground font-normal", className)}
+	class={cn("svelte-ui","text-sui-foreground font-normal", className)}
 	{...restProps}
 >
 	{@render children?.()}

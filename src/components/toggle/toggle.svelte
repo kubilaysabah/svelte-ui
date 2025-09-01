@@ -2,12 +2,12 @@
 	import { type VariantProps, tv } from "tailwind-variants";
 
 	export const toggleVariants = tv({
-		base: "hover:bg-muted hover:text-muted-foreground data-[state=on]:bg-accent data-[state=on]:text-accent-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none transition-[color,box-shadow] focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+		base: "hover:bg-sui-muted hover:text-sui-muted-foreground data-[state=on]:bg-sui-accent data-[state=on]:text-sui-accent-foreground focus-visible:border-sui-ring focus-visible:ring-sui-ring/50 aria-invalid:ring-sui-destructive/20 dark:aria-invalid:ring-sui-destructive/40 aria-invalid:border-sui-destructive inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none transition-[color,box-shadow] focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
 		variants: {
 			variant: {
 				default: "bg-transparent",
 				outline:
-					"border-input shadow-xs hover:bg-accent hover:text-accent-foreground border bg-transparent",
+					"border-sui-input shadow-xs hover:bg-sui-accent hover:text-sui-accent-foreground border bg-transparent",
 			},
 			size: {
 				default: "h-9 min-w-9 px-2",
@@ -47,6 +47,6 @@
 	bind:ref
 	bind:pressed
 	data-slot="toggle"
-	class={cn(toggleVariants({ variant, size }), className)}
+	class={cn("svelte-ui",toggleVariants({ variant, size }), className)}
 	{...restProps}
 />

@@ -22,8 +22,8 @@
 	bind:checked
 	bind:indeterminate
 	data-slot="dropdown-menu-checkbox-item"
-	class={cn(
-		"focus:bg-accent focus:text-accent-foreground outline-hidden relative flex cursor-default select-none items-center gap-2 rounded-sm py-1.5 pl-8 pr-2 text-sm data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+	class={cn("svelte-ui",
+		"focus:bg-sui-accent focus:text-sui-accent-foreground outline-hidden relative flex cursor-default select-none items-center gap-2 rounded-sm py-1.5 pl-8 pr-2 text-sm data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
 		className
 	)}
 	{...restProps}
@@ -33,7 +33,7 @@
 			{#if indeterminate}
 				<MinusIcon class="size-4" />
 			{:else}
-				<CheckIcon class={cn("size-4", !checked && "text-transparent")} />
+				<CheckIcon class={cn("svelte-ui","size-4", !checked && "text-transparent")} />
 			{/if}
 		</span>
 		{@render childrenProp?.()}

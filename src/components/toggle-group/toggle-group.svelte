@@ -39,7 +39,7 @@ get along, so we shut typescript up by casting `value` to `never`.
 	data-slot="toggle-group"
 	data-variant={variant}
 	data-size={size}
-	class={cn(
+	class={cn("svelte-ui",
 		"group/toggle-group data-[variant=outline]:shadow-xs flex w-fit items-center rounded-md",
 		className
 	)}

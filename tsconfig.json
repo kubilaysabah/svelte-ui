@@ -11,6 +11,7 @@
 		"strict": true,
 		"module": "es2015",
 		// "moduleResolution": "NodeNext",
-		"moduleResolution": "bundler"
+		"moduleResolution": "bundler",
+		"verbatimModuleSyntax": false
 	}
 }

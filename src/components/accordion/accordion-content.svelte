@@ -16,7 +16,7 @@
 	class="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
 	{...restProps}
 >
-	<div class={cn("pb-4 pt-0", className)}>
+	<div class={cn("svelte-ui","pb-4 pt-0", className)}>
 		{@render children?.()}
 	</div>
 </AccordionPrimitive.Content>

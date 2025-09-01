@@ -18,8 +18,8 @@
 	bind:ref
 	data-slot="menubar-sub-trigger"
 	data-inset={inset}
-	class={cn(
-		"focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[inset]:pl-8",
+	class={cn("svelte-ui",
+		"focus:bg-sui-accent focus:text-sui-accent-foreground data-[state=open]:bg-sui-accent data-[state=open]:text-sui-accent-foreground flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[inset]:pl-8",
 		className
 	)}
 	{...restProps}
