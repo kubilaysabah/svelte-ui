@@ -34,4 +34,4 @@ export { default as RangeCalendarCaption } from "./range-calendar-caption.svelte
 export { default as RangeCalendarNav } from "./range-calendar-nav.svelte";
 export { default as RangeCalendarMonth } from "./range-calendar-month.svelte";
 export { default as RangeCalendarGridHead } from "./range-calendar-grid-head.svelte";
-export { RangeCalendar } from "bits-ui";
+export { default as RangeCalendar } from "./range-calendar.svelte";
