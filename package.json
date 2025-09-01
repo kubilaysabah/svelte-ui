@@ -84,6 +84,14 @@
   "keywords": [
     "svelte"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kubilaysabah/svelte-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kubilaysabah/svelte-ui/issues"
+  },
+  "homepage": "https://github.com/kubilaysabah/svelte-ui#readme",
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
