@@ -2,7 +2,8 @@ name: Publish to NPM
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   release:
     types: [published]
 
@@ -16,13 +17,21 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 'lts/*'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 8
+
+      - name: Setup pnpm store cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
 
       - name: Install dependencies
         run: pnpm install
@@ -34,6 +43,6 @@ jobs:
         run: pnpm build
 
       - name: Publish to NPM
-        run: pnpm publish --no-git-checks
+        run: pnpm publish --access public --provenance --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
