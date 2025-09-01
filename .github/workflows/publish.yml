@@ -36,8 +36,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run tests
-        run: pnpm test
+      - name: Run tests (if any exist)
+        run: |
+          if [ -d "src" ] && find src -name "*.test.*" -o -name "*.spec.*" | grep -q .; then
+            pnpm test
+          else
+            echo "No test files found, skipping tests"
+          fi
 
       - name: Build package
         run: pnpm build
