@@ -51,3 +51,31 @@
   --sui-input: oklch(1 0 0 / 15%);
   --sui-ring: oklch(0.556 0 0);
 }
+
+@theme {
+  /* Register component-specific color utilities for TailwindCSS v4 */
+  --color-sui-background: var(--sui-background);
+  --color-sui-foreground: var(--sui-foreground);
+  --color-sui-card: var(--sui-card);
+  --color-sui-card-foreground: var(--sui-card-foreground);
+  --color-sui-popover: var(--sui-popover);
+  --color-sui-popover-foreground: var(--sui-popover-foreground);
+  --color-sui-primary: var(--sui-primary);
+  --color-sui-primary-foreground: var(--sui-primary-foreground);
+  --color-sui-secondary: var(--sui-secondary);
+  --color-sui-secondary-foreground: var(--sui-secondary-foreground);
+  --color-sui-muted: var(--sui-muted);
+  --color-sui-muted-foreground: var(--sui-muted-foreground);
+  --color-sui-accent: var(--sui-accent);
+  --color-sui-accent-foreground: var(--sui-accent-foreground);
+  --color-sui-destructive: var(--sui-destructive);
+  --color-sui-border: var(--sui-border);
+  --color-sui-input: var(--sui-input);
+  --color-sui-ring: var(--sui-ring);
+  
+  /* Register component-specific border radius utilities */
+  --radius-sui-sm: var(--sui-radius-sm);
+  --radius-sui-md: var(--sui-radius-md);
+  --radius-sui-lg: var(--sui-radius-lg);
+  --radius-sui-xl: var(--sui-radius-xl);
+}

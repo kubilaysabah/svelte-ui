@@ -51,53 +51,23 @@ This library requires TailwindCSS v4 and does NOT include TailwindCSS in its bun
 import '@kubilaysabah/svelte-ui/styles.css';
 ```
 
-2. **Configure TailwindCSS** to include the library's utility classes. Add this to your `tailwind.config.js`:
+2. **Add library content to your TailwindCSS** by updating your CSS file:
 
-```js
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    './src/**/*.{html,js,svelte,ts}',
-    './node_modules/@kubilaysabah/svelte-ui/**/*.{js,svelte,ts}'
-  ],
-  theme: {
-    extend: {
-      colors: {
-        'sui-background': 'var(--sui-background)',
-        'sui-foreground': 'var(--sui-foreground)',
-        'sui-card': 'var(--sui-card)',
-        'sui-card-foreground': 'var(--sui-card-foreground)',
-        'sui-popover': 'var(--sui-popover)',
-        'sui-popover-foreground': 'var(--sui-popover-foreground)',
-        'sui-primary': 'var(--sui-primary)',
-        'sui-primary-foreground': 'var(--sui-primary-foreground)',
-        'sui-secondary': 'var(--sui-secondary)',
-        'sui-secondary-foreground': 'var(--sui-secondary-foreground)',
-        'sui-muted': 'var(--sui-muted)',
-        'sui-muted-foreground': 'var(--sui-muted-foreground)',
-        'sui-accent': 'var(--sui-accent)',
-        'sui-accent-foreground': 'var(--sui-accent-foreground)',
-        'sui-destructive': 'var(--sui-destructive)',
-        'sui-border': 'var(--sui-border)',
-        'sui-input': 'var(--sui-input)',
-        'sui-ring': 'var(--sui-ring)',
-      },
-      borderRadius: {
-        'sui-sm': 'var(--sui-radius-sm)',
-        'sui-md': 'var(--sui-radius-md)',
-        'sui-lg': 'var(--sui-radius-lg)',
-        'sui-xl': 'var(--sui-radius-xl)',
-      }
-    },
-  },
-  plugins: [],
-}
+```css
+/* Your main CSS file (e.g., app.css) */
+@import "tailwindcss";
+
+/* Add library content for TailwindCSS v4 */
+@source "node_modules/@kubilaysabah/svelte-ui/dist/**/*.{js,svelte,ts}";
 ```
 
+**That's it!** TailwindCSS v4 will automatically detect and include the component utilities through the `@theme` directive in the imported styles.
+
 **Why this approach?**
+- ✅ No configuration files needed (TailwindCSS v4 native)
 - ✅ No TailwindCSS conflicts with your existing setup
 - ✅ Smaller bundle size - no duplicate TailwindCSS
-- ✅ You maintain full control over your TailwindCSS configuration
+- ✅ Automatic utility detection via `@theme` directive
 - ✅ Components use scoped CSS variables that won't affect your app's styles
 
 ### 🎨 Style Architecture
