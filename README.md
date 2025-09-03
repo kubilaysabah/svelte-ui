@@ -9,60 +9,96 @@ Modern, accessible, and customizable UI component library for Svelte 5 applicati
 - **Accessible**: WCAG compliant components with proper ARIA attributes and keyboard navigation
 - **Customizable**: Built with Class Variance Authority (CVA) for flexible styling
 - **Modern Styling**: Powered by Tailwind CSS with dark mode support
-- **Tree Shakeable**: Import only what you need for optimal bundle size
-- **Component Isolation**: Scoped CSS prevents style conflicts with your application
 - **Robust Architecture**: Proper component wrapping for bits-ui primitives with full TypeScript support
 - **Developer Experience**: Comprehensive documentation and Storybook stories
 
-## 📦 Installation
+## 🚀 Installation
 
 ```bash
-# Using npm
+# npm
 npm install @kubilaysabah/svelte-ui
 
-# Using pnpm
+# pnpm
 pnpm add @kubilaysabah/svelte-ui
 
-# Using yarn
+# yarn
 yarn add @kubilaysabah/svelte-ui
 ```
 
 ### Peer Dependencies
 
-Make sure you have Svelte 5 installed:
+Make sure you have the required peer dependencies installed:
 
 ```bash
-npm install svelte@^5.0.0
+# npm
+npm install svelte tailwindcss
+
+# pnpm
+pnpm add svelte tailwindcss
+
+# yarn
+yarn add svelte tailwindcss
 ```
 
-### Setup Tailwind CSS
+### TailwindCSS Setup
 
-This library requires **TailwindCSS v4** and is designed to work without configuration files. If you haven't set it up yet:
+This library requires TailwindCSS v4 and does NOT include TailwindCSS in its bundle to avoid conflicts with your existing setup.
 
-```bash
-npm install -D tailwindcss@next @tailwindcss/vite
-```
-
-Add the TailwindCSS Vite plugin to your `vite.config.js`:
+1. **Import the component styles** in your app:
 
 ```js
-import { sveltekit } from '@sveltejs/kit/vite';
-import tailwindcss from '@tailwindcss/vite';
-import { defineConfig } from 'vite';
-
-export default defineConfig({
-  plugins: [tailwindcss(), sveltekit()]
-});
+// In your main app file (e.g., app.js, main.js, or +layout.svelte)
+import '@kubilaysabah/svelte-ui/styles.css';
 ```
 
-### Import Component Styles
+2. **Configure TailwindCSS** to include the library's utility classes. Add this to your `tailwind.config.js`:
 
-Import the component styles in your main CSS file (e.g., `src/app.css`):
-
-```css
-@import "tailwindcss";
-@import "@kubilaysabah/svelte-ui/dist/app.css";
+```js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    './src/**/*.{html,js,svelte,ts}',
+    './node_modules/@kubilaysabah/svelte-ui/**/*.{js,svelte,ts}'
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'sui-background': 'var(--sui-background)',
+        'sui-foreground': 'var(--sui-foreground)',
+        'sui-card': 'var(--sui-card)',
+        'sui-card-foreground': 'var(--sui-card-foreground)',
+        'sui-popover': 'var(--sui-popover)',
+        'sui-popover-foreground': 'var(--sui-popover-foreground)',
+        'sui-primary': 'var(--sui-primary)',
+        'sui-primary-foreground': 'var(--sui-primary-foreground)',
+        'sui-secondary': 'var(--sui-secondary)',
+        'sui-secondary-foreground': 'var(--sui-secondary-foreground)',
+        'sui-muted': 'var(--sui-muted)',
+        'sui-muted-foreground': 'var(--sui-muted-foreground)',
+        'sui-accent': 'var(--sui-accent)',
+        'sui-accent-foreground': 'var(--sui-accent-foreground)',
+        'sui-destructive': 'var(--sui-destructive)',
+        'sui-border': 'var(--sui-border)',
+        'sui-input': 'var(--sui-input)',
+        'sui-ring': 'var(--sui-ring)',
+      },
+      borderRadius: {
+        'sui-sm': 'var(--sui-radius-sm)',
+        'sui-md': 'var(--sui-radius-md)',
+        'sui-lg': 'var(--sui-radius-lg)',
+        'sui-xl': 'var(--sui-radius-xl)',
+      }
+    },
+  },
+  plugins: [],
+}
 ```
+
+**Why this approach?**
+- ✅ No TailwindCSS conflicts with your existing setup
+- ✅ Smaller bundle size - no duplicate TailwindCSS
+- ✅ You maintain full control over your TailwindCSS configuration
+- ✅ Components use scoped CSS variables that won't affect your app's styles
 
 ### 🎨 Style Architecture
 

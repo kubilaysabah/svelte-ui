@@ -1,0 +1,53 @@
+/* Component-specific CSS variables for @kubilaysabah/svelte-ui */
+/* These variables are used by the components and can be customized by the consuming application */
+
+:where(.svelte-ui) {
+  /* Core design tokens */
+  --sui-radius: 0.625rem;
+  --sui-radius-sm: calc(var(--sui-radius) - 4px);
+  --sui-radius-md: calc(var(--sui-radius) - 2px);
+  --sui-radius-lg: var(--sui-radius);
+  --sui-radius-xl: calc(var(--sui-radius) + 4px);
+  
+  /* Light theme colors */
+  --sui-background: oklch(1 0 0);
+  --sui-foreground: oklch(0.145 0 0);
+  --sui-card: oklch(1 0 0);
+  --sui-card-foreground: oklch(0.145 0 0);
+  --sui-popover: oklch(1 0 0);
+  --sui-popover-foreground: oklch(0.145 0 0);
+  --sui-primary: oklch(0.205 0 0);
+  --sui-primary-foreground: oklch(0.985 0 0);
+  --sui-secondary: oklch(0.97 0 0);
+  --sui-secondary-foreground: oklch(0.205 0 0);
+  --sui-muted: oklch(0.97 0 0);
+  --sui-muted-foreground: oklch(0.556 0 0);
+  --sui-accent: oklch(0.97 0 0);
+  --sui-accent-foreground: oklch(0.205 0 0);
+  --sui-destructive: oklch(0.577 0.245 27.325);
+  --sui-border: oklch(0.922 0 0);
+  --sui-input: oklch(0.922 0 0);
+  --sui-ring: oklch(0.708 0 0);
+}
+
+:where(.svelte-ui.dark, .dark .svelte-ui) {
+  /* Dark theme colors */
+  --sui-background: oklch(0.145 0 0);
+  --sui-foreground: oklch(0.985 0 0);
+  --sui-card: oklch(0.205 0 0);
+  --sui-card-foreground: oklch(0.985 0 0);
+  --sui-popover: oklch(0.205 0 0);
+  --sui-popover-foreground: oklch(0.985 0 0);
+  --sui-primary: oklch(0.922 0 0);
+  --sui-primary-foreground: oklch(0.205 0 0);
+  --sui-secondary: oklch(0.269 0 0);
+  --sui-secondary-foreground: oklch(0.985 0 0);
+  --sui-muted: oklch(0.269 0 0);
+  --sui-muted-foreground: oklch(0.708 0 0);
+  --sui-accent: oklch(0.269 0 0);
+  --sui-accent-foreground: oklch(0.985 0 0);
+  --sui-destructive: oklch(0.704 0.191 22.216);
+  --sui-border: oklch(1 0 0 / 10%);
+  --sui-input: oklch(1 0 0 / 15%);
+  --sui-ring: oklch(0.556 0 0);
+}

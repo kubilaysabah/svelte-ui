@@ -1,4 +1,7 @@
-// Re-export all components from the components directory
+// Import styles
+import './styles.css';
+
+// Re-export your entry components here from the components directory
 export * from "../components";
 
 // Re-export utilities
